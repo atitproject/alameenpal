@@ -1,0 +1,319 @@
+<!DOCTYPE html><html class="w-full min-h-screen overflow-x-hidden" dir="ltr" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Product Details - Al Amin Pal Food Import &amp; Distribution</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0; width: 100%; min-height: 100vh;
+      overflow-x: hidden !important;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#840010",
+            "primary-container": "#a81d22",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#ffbbb5",
+            "primary-fixed": "#ffdad7",
+            "secondary": "#236141",
+            "secondary-container": "#aef768",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#002111",
+            "secondary-fixed": "#b0f1c7",
+            "secondary-fixed-dim": "#95d4ac",
+            "on-secondary-fixed-variant": "#0f5132",
+            "tertiary": "#02492b",
+            "tertiary-container": "#184e34",
+            "surface": "#f7f9ff",
+            "surface-dim": "#d5dae4",
+            "surface-bright": "#f7f9ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f0f4fc",
+            "surface-container": "#e8eef8",
+            "surface-container-high": "#e0e6f2",
+            "surface-container-highest": "#d8dfea",
+            "on-surface": "#161c23",
+            "on-surface-variant": "#545f71",
+            "outline": "#757f8f",
+            "outline-variant": "#c4cbd8",
+            "inverse-surface": "#1e242c"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-white w-full min-h-screen overflow-x-hidden flex flex-col">
+<!-- TOP NAV HEADER -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high/80 shadow-sm w-full">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 h-32 sm:h-40 flex items-center justify-between">
+<a class="flex items-center group" href="index.html">
+<img alt="Al Amin Pal Logo" class="h-[7.5rem] sm:h-[9rem] w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQOxQNUgmMOQ7predbSNcsVd0Nr27eU64SmF39ySWWaJa6wPOGINkW-I-PKhROYtDMUsx8I44YD2YuBb0PH8uQ98IzGDlopGK4hI4Xx0aYD6Dmk165FvwSxH39C4rbEsglyZMCEvxdo4Sb9Hxt57RCfJF85_f4tqjXPZQGrOE6J85uMdWrbREMCKhbKfKCJyT26cM3AZ94lVF9mS2rUdalLi58FEe9dc1Vu0_HqWtGZUKY0YsY8TW-5z0gBYbVol0O784">
+</a>
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-surface-container-high bg-surface-container-lowest hover:bg-surface-container text-xs sm:text-sm font-bold text-primary transition-all shadow-sm" href="index.html#brands">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Back to Brands</span>
+</a>
+</div>
+</header>
+<main class="w-full flex-1 flex flex-col overflow-x-hidden">
+<!-- CATEGORY HERO -->
+<section class="w-full bg-surface-container-low border-b border-surface-container-high">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16">
+<nav class="flex items-center gap-2 text-xs font-semibold text-on-surface-variant mb-6" id="breadcrumb"></nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<div class="lg:col-span-5 order-2 lg:order-1 space-y-5">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-fixed text-primary font-bold text-xs uppercase tracking-wider" id="brand-chip">Brand</div>
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface tracking-tight leading-tight" id="cat-title">Category</h1>
+<p class="text-sm sm:text-base text-on-surface-variant leading-relaxed" id="cat-tagline">Tagline</p>
+<div class="pt-2 flex flex-wrap items-center gap-3">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-white font-bold text-sm hover:bg-tertiary transition-all shadow-sm" id="cat-wa" href="https://wa.me/970562820023" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Inquire About This Range</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2">
+<div class="relative rounded-3xl overflow-hidden bg-white border border-surface-container-high shadow-xl aspect-[16/10] flex items-center justify-center p-8">
+<img alt="" class="max-h-full w-auto object-contain" id="cat-hero-img" src="">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PRODUCTS GRID -->
+<section class="w-full py-14 lg:py-20 bg-surface">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="flex items-end justify-between mb-10 gap-4 flex-wrap">
+<div class="space-y-2">
+<h2 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight" id="products-heading">Products in this range</h2>
+<p class="text-sm text-on-surface-variant" id="products-sub">Explore the available options below.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold" id="products-count">0 items</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid"></div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="w-full bg-surface-container-low border-t border-surface-container-high py-8">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-on-surface-variant">
+<p>© 2026 Al Amin Pal Food Import &amp; Distribution. All rights reserved.</p>
+<a class="hover:text-primary font-bold transition-colors" href="index.html#brands">← Back to all brands</a>
+</div>
+</footer>
+<!-- FLOATING WHATSAPP BUTTON -->
+<a aria-label="Chat on WhatsApp" class="fixed bottom-5 left-5 z-50 inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg shadow-black/25 hover:scale-110 hover:shadow-xl transition-all duration-300" href="https://wa.me/970562820023" rel="noopener noreferrer" target="_blank" title="Chat on WhatsApp">
+<svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script>
+  const WA = "https://wa.me/970562820023?text=" + encodeURIComponent("Hello Al Amin Pal, I would like to inquire about: ");
+  const IMG = {
+    arizona: "https://lh3.googleusercontent.com/aida/AEtjO1W_ize1jVgpcsnYFGFZykfLGVIXCvH_qgepRNrL0F-CsgnkUg1BFOhFX2UD5dspP0u0-4QWjHfAa55lFsaHDa0mk9_tq-JB_8KG1je8L9VxDQRjsP4d0oAe7oGroT5nWzuMhSp0CXdst9S-wDv1ZfMUP3n313KGHskTz9vRzPG-Pju8Yki7gSOuOhj2JihIszonmztDDeQwVGeGb89pbL_WGCMUYTkPajB_vK4tA8gMNN0HA8C0cDXyeklo",
+    kitco: "https://lh3.googleusercontent.com/aida/AEtjO1VMlKIS6LGwHAv8htp4dL9eBnMvhHGJM5XCypo7TBpFPHy_p4v4e5Gf2mTSvaldvkslguSZ-cKhaiC_vMMy_V8zO-ErRerVVkLOyCL8NNNZHB5Xj7QDsT2ibfIMdKt3v0d7BRESLTLOT8rNQefM0ia5TnTh-dE5MlVAGVZKVVdpcoWewrsBGbaM1j-ZbNogM4xWE0ppFNsJeEWkHuDXR_qLPlPlm7hdtt_RNIkmHnX4zbyTg0-jYxosabQ",
+    hero: "https://lh3.googleusercontent.com/aida/AEtjO1VRcFYiJb0_rUCBgbdqSp5txlwoLInI_-taRiTKNJEvBYcCYOuwDXi6rSOnKnaRE2w7EVey6-PwV26oZ1IXisWYQ87tA3rqMtHquSMjoWHKq0qENNU4f1FBy5PwnSu1oFVi0YVKZu6rA3Lv4E_bNp18ze8opzWzifd6_5pg5i5zTCk5YgUD5eogzX0_Z0YzN15h6BVdd8m-pGiSjVwOY0l_Kroi-wBb4K9YuiQvke2HPgG6ERHx0o2vxIAE",
+    wefaqSour: "https://lh3.googleusercontent.com/aida-public/AB6AXuAMvRmwR2nBzRGH7ULqnQQGV8E2L2d-NWy9MaanmmSrYP6yWk_BZ-zS9m7cvBMb30eEkoYt7fBEO0rDq1tuexeTtWlhEwP6GqPydovmSNVsCnhyVTcqAAGnyNDI5gZ3FBdSPrhpNzoNZqcsPdBQxDjN_xvrQ5asr_3n7aARCxxjEO_P1Yhw_Gw0uZ7sNknjGtyNb6CScGxkbttr2QplyMOpxpFfhy9-dLPHl1U23Cv17vjpHNAOhwvPl1jBLG23f_Ca8JA",
+    wefaqBear: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBnhPBQWwnb9yHWh3-G13GNWvSL7vVSVJBE_kQ6_W20js0JkARHQxYc0JmpMLUZ9pfA_1Y8LmPa0ySoJRdZisNXTaZpKQyd5OMtmLrKOrZZS88ixyxogqgwxcOqwzwvQ6sfM-tQ_70OWBIR-LrCI8bfgRaoj2hsPYBEw4riOT04og_dllZN_zlBqigHhOCnsIWi_PvAWk77X4LEB7oo9qXGQEq8ztFzrHUrUEcARqvoWh4rwrzy_jyvfdck9EPmwopNhg",
+    wefaqPeach: "https://lh3.googleusercontent.com/aida-public/AB6AXuARCGY_WMSGN_MJZx7b01eGTbngkCdyf1taAUbvlTJ0iy8qZr1-pXvpyV9l-zg0A5ny--iYT08xuuNhOAkmqM_hO1tnVAfhFqYr-7kdXa0k9xQxO1I7Sm6wDiJYje8NJ3n3-R-gLGSFX2mSS7oKmRbjuTtTv48caoc7NZTfs6NaCiaFMAPjkjbZcHnZ10YUhh-CRRB8451iwTwV4Pgtj7UcK9NWayWPRabEcAeI9_XLV1AhmSIZx5udYZN6cYKx2X2koII",
+    wefaqCake: "https://lh3.googleusercontent.com/aida-public/AB6AXuDL6rCN8PwT-MH32Alvn-znOCsSPbZPch3Fh4ACGw2Zh6hCeK6US0AJ231WkvIaTOyxUA8a94Q86ql1buQiYKDwLjJ_kMfqaw9-VP2-eHP4r-mXj0cjAgrSaLJsof5QZIFLGs3IWarzJSIasJNSZLonF2nQ4cj3qOIPaXcg2X1yfXpmwmB3qGCgQqRKyk5Atsh1r8ZawuyOUMdNpq8fhjOpmGMD-IM79W1FLClYRcpIHQ2uvolUTzEB_Djj4ougv_hpnII"
+  };
+  const p = (code, name, desc, size, img) => ({ code, name, desc, size, img });
+
+  const CATALOG = {
+    // ===== ARIZONA =====
+    "arizona-green-tea": { brand: "Arizona", title: "Green Tea with Honey", img: IMG.arizona,
+      tagline: "The signature Arizona green tea range — brewed with real green tea leaves and a touch of honey.",
+      products: [
+        p("AZ-GT-01","Green Tea with Honey","Classic green tea sweetened with real honey.","500ml Bottle • Case of 12", IMG.arizona),
+        p("AZ-GT-02","Green Tea with Ginseng","Green tea infused with ginseng and honey.","680ml Can • Case of 24", IMG.arizona),
+        p("AZ-GT-03","Green Tea Zero Sugar","All the flavour, zero added sugar.","500ml Bottle • Case of 12", IMG.arizona),
+        p("AZ-GT-04","Green Tea Sharing Bottle","Family size for gatherings.","1.5L Bottle • Case of 6", IMG.arizona)
+      ] },
+    "arizona-mango": { brand: "Arizona", title: "Mucho Mango", img: IMG.arizona,
+      tagline: "Tropical mango juice cocktails bursting with fruity flavour.",
+      products: [
+        p("AZ-MG-01","Mucho Mango Juice","Refreshing tropical mango cocktail.","500ml Bottle • Case of 12", IMG.arizona),
+        p("AZ-MG-02","Mucho Mango Can","The tall-can classic.","680ml Can • Case of 24", IMG.arizona),
+        p("AZ-MG-03","Mango Peach","Mango blended with juicy peach.","500ml Bottle • Case of 12", IMG.arizona),
+        p("AZ-MG-04","Mango Sharing Bottle","Big bottle for sharing.","1.5L Bottle • Case of 6", IMG.arizona)
+      ] },
+    "arizona-watermelon": { brand: "Arizona", title: "Watermelon", img: IMG.arizona,
+      tagline: "Sweet, summery watermelon fruit cocktails.",
+      products: [
+        p("AZ-WM-01","Watermelon Cocktail","Crisp, sweet watermelon refresher.","500ml Bottle • Case of 12", IMG.arizona),
+        p("AZ-WM-02","Watermelon Can","The iconic tall can.","680ml Can • Case of 24", IMG.arizona),
+        p("AZ-WM-03","Watermelon Zero Sugar","Light and refreshing, no added sugar.","500ml Bottle • Case of 12", IMG.arizona)
+      ] },
+    "arizona-lemon": { brand: "Arizona", title: "Lemon Iced Tea", img: IMG.arizona,
+      tagline: "America's favourite iced tea with a zesty lemon twist.",
+      products: [
+        p("AZ-LT-01","Lemon Iced Tea","Smooth black iced tea with lemon.","500ml Bottle • Case of 12", IMG.arizona),
+        p("AZ-LT-02","Lemon Iced Tea Can","The classic tall can.","680ml Can • Case of 24", IMG.arizona),
+        p("AZ-LT-03","Peach Iced Tea","Black tea with a peach finish.","500ml Bottle • Case of 12", IMG.arizona),
+        p("AZ-LT-04","Iced Tea Sharing Bottle","Family size iced tea.","1.5L Bottle • Case of 6", IMG.arizona)
+      ] },
+
+    // ===== AL WEFAQ (Borgat Gummy) =====
+    "wefaq-sour-strawberry": { brand: "Al Wefaq", title: "Sour Strawberry", img: IMG.wefaqSour,
+      tagline: "Borgat sour strawberry gummies — tangy, chewy and coated in sugar.",
+      products: [
+        p("BW-SS-01","Sour Strawberry Tub","Chewy sour strawberry gummies.","160g Tub • Case of 24", IMG.wefaqSour),
+        p("BW-SS-02","Sour Strawberry Bag","Convenient share bag.","80g Bag • Case of 30", IMG.wefaqSour),
+        p("BW-SS-03","Sour Strawberry Jar","Party-size jar.","500g Jar • Case of 6", IMG.wefaqSour)
+      ] },
+    "wefaq-bumble-bear": { brand: "Al Wefaq", title: "Bumble Bear", img: IMG.wefaqBear,
+      tagline: "Classic fruit-flavoured gummy bears the whole family loves.",
+      products: [
+        p("BW-BB-01","Bumble Bear Tub","Assorted fruit gummy bears.","160g Tub • Case of 24", IMG.wefaqBear),
+        p("BW-BB-02","Bumble Bear Bag","Grab-and-go share bag.","80g Bag • Case of 30", IMG.wefaqBear),
+        p("BW-BB-03","Bumble Bear Jar","Party-size jar.","500g Jar • Case of 6", IMG.wefaqBear)
+      ] },
+    "wefaq-peach-rings": { brand: "Al Wefaq", title: "Peach Rings", img: IMG.wefaqPeach,
+      tagline: "Soft, sugar-dusted peach rings with a refreshing fruity taste.",
+      products: [
+        p("BW-PR-01","Peach Rings Tub","Sugar-coated peach rings.","160g Tub • Case of 24", IMG.wefaqPeach),
+        p("BW-PR-02","Peach Rings Bag","Share-size bag.","80g Bag • Case of 30", IMG.wefaqPeach),
+        p("BW-PR-03","Peach Rings Jar","Party-size jar.","500g Jar • Case of 6", IMG.wefaqPeach)
+      ] },
+    "wefaq-celebration": { brand: "Al Wefaq", title: "Celebration Cakes", img: IMG.wefaqCake,
+      tagline: "Fun jelly cake candies, perfect for parties and celebrations.",
+      products: [
+        p("BW-CC-01","Celebration Cakes Tub","Assorted jelly cake candies.","160g Tub • Case of 24", IMG.wefaqCake),
+        p("BW-CC-02","Celebration Cakes Bag","Share-size bag.","80g Bag • Case of 30", IMG.wefaqCake),
+        p("BW-CC-03","Celebration Cakes Jar","Party-size jar.","500g Jar • Case of 6", IMG.wefaqCake)
+      ] },
+
+    // ===== KITCO =====
+    "kitco-salted": { brand: "KITCO", title: "Crisps Salted", img: IMG.kitco,
+      tagline: "KITCO's crunchy potato crisps in the timeless salted flavour.",
+      products: [
+        p("KC-SA-01","Crisps Salted","Crunchy salted potato crisps.","160g • Case of 20", IMG.kitco),
+        p("KC-SA-02","Crisps Salted Snack","Single-serve snack pack.","45g • Case of 30", IMG.kitco),
+        p("KC-SA-03","Crisps Salted Family","Family sharing pack.","250g • Case of 12", IMG.kitco)
+      ] },
+    "kitco-sourcream": { brand: "KITCO", title: "Sour Cream & Onion", img: IMG.kitco,
+      tagline: "Creamy sour-cream and onion seasoning on crisp potato chips.",
+      products: [
+        p("KC-SC-01","Sour Cream & Onion","Creamy, tangy potato crisps.","160g • Case of 20", IMG.kitco),
+        p("KC-SC-02","Sour Cream Snack","Single-serve snack pack.","45g • Case of 30", IMG.kitco),
+        p("KC-SC-03","Sour Cream Family","Family sharing pack.","250g • Case of 12", IMG.kitco)
+      ] },
+    "kitco-stix": { brand: "KITCO", title: "Potato Stix", img: IMG.kitco,
+      tagline: "The original crunchy potato sticks in resealable packs.",
+      products: [
+        p("KC-ST-01","Potato Stix Original","Crunchy original potato sticks.","45g Pack • Case of 24", IMG.kitco),
+        p("KC-ST-02","Potato Stix Cheese","Sticks with a cheesy twist.","45g Pack • Case of 24", IMG.kitco),
+        p("KC-ST-03","Potato Stix Canister","Resealable sharing canister.","110g • Case of 12", IMG.kitco)
+      ] },
+    "kitco-tortilla": { brand: "KITCO", title: "Nacho Tortilla Chips", img: IMG.kitco,
+      tagline: "Authentic corn tortilla chips, great for dipping and sharing.",
+      products: [
+        p("KC-TO-01","Nacho Cheese Tortilla","Corn tortilla chips with cheese.","180g • Case of 16", IMG.kitco),
+        p("KC-TO-02","Salted Tortilla","Lightly salted corn tortilla chips.","180g • Case of 16", IMG.kitco),
+        p("KC-TO-03","Chilli Tortilla","Tortilla chips with a chilli kick.","180g • Case of 16", IMG.kitco)
+      ] },
+
+    // ===== HERO =====
+    "hero-strawberry-jam": { brand: "Hero", title: "Strawberry Jam", img: IMG.hero,
+      tagline: "Premium Swiss strawberry preserves made with carefully selected fruit.",
+      products: [
+        p("HR-SJ-01","Strawberry Jam Jar","Classic Swiss strawberry preserve.","350g Jar • Case of 12", IMG.hero),
+        p("HR-SJ-02","Strawberry Jam Portions","Single-serve breakfast portions.","25g × 100 Portions", IMG.hero),
+        p("HR-SJ-03","Strawberry Delight Light","Reduced-sugar strawberry spread.","300g Jar • Case of 12", IMG.hero)
+      ] },
+    "hero-apricot-fig": { brand: "Hero", title: "Apricot & Fig Jam", img: IMG.hero,
+      tagline: "Natural apricot and fig preserves with a rich, fruity character.",
+      products: [
+        p("HR-AF-01","Apricot Jam Jar","Natural apricot preserve.","350g Jar • Case of 12", IMG.hero),
+        p("HR-AF-02","Fig Jam Jar","Rich natural fig preserve.","350g Jar • Case of 12", IMG.hero),
+        p("HR-AF-03","Apricot Portions","Single-serve breakfast portions.","25g × 100 Portions", IMG.hero)
+      ] },
+    "hero-baby": { brand: "Hero", title: "Hero Baby Mixed Fruits", img: IMG.hero,
+      tagline: "Hero Baby nutritious purees made with natural fruit for little ones.",
+      products: [
+        p("HR-BB-01","Baby Mixed Fruits","Natural mixed-fruit puree.","120g Jar • Case of 24", IMG.hero),
+        p("HR-BB-02","Baby Apple & Banana","Smooth apple and banana puree.","120g Jar • Case of 24", IMG.hero),
+        p("HR-BB-03","Baby Pear","Gentle pear puree for weaning.","120g Jar • Case of 24", IMG.hero)
+      ] },
+    "hero-honey": { brand: "Hero", title: "Pure Blossom Honey", img: IMG.hero,
+      tagline: "Pure, natural blossom honey with a smooth golden finish.",
+      products: [
+        p("HR-HN-01","Pure Blossom Honey","Natural blossom honey.","500g Jar • Case of 12", IMG.hero),
+        p("HR-HN-02","Blossom Honey Squeeze","Convenient squeeze bottle.","350g Bottle • Case of 12", IMG.hero),
+        p("HR-HN-03","Honey Portions","Single-serve honey portions.","20g × 100 Portions", IMG.hero)
+      ] }
+  };
+
+  function getParam(name){ return new URLSearchParams(location.search).get(name); }
+
+  function render(){
+    const id = getParam("cat");
+    const cat = CATALOG[id];
+    const grid = document.getElementById("products-grid");
+
+    if(!cat){
+      document.getElementById("brand-chip").textContent = "Not found";
+      document.getElementById("cat-title").textContent = "Category not found";
+      document.getElementById("cat-tagline").textContent = "The category you are looking for is not available. Please go back and choose a product.";
+      document.getElementById("breadcrumb").innerHTML = '<a class="hover:text-primary" href="index.html">Home</a><span>/</span><a class="hover:text-primary" href="index.html#brands">Our Brands</a>';
+      document.getElementById("products-heading").textContent = "";
+      document.getElementById("products-sub").textContent = "";
+      document.getElementById("products-count").style.display = "none";
+      return;
+    }
+
+    document.title = cat.title + " - " + cat.brand + " | Al Amin Pal";
+    document.getElementById("brand-chip").textContent = cat.brand;
+    document.getElementById("cat-title").textContent = cat.title;
+    document.getElementById("cat-tagline").textContent = cat.tagline;
+    document.getElementById("cat-hero-img").src = cat.img;
+    document.getElementById("cat-hero-img").alt = cat.title;
+    document.getElementById("cat-wa").href = WA + encodeURIComponent(cat.brand + " " + cat.title);
+    document.getElementById("products-heading").textContent = cat.title + " range";
+    document.getElementById("products-sub").textContent = "Available options in the " + cat.title + " range from " + cat.brand + ".";
+    document.getElementById("products-count").textContent = cat.products.length + (cat.products.length === 1 ? " item" : " items");
+
+    document.getElementById("breadcrumb").innerHTML =
+      '<a class="hover:text-primary" href="index.html">Home</a>' +
+      '<span class="material-symbols-outlined text-[14px]">chevron_right</span>' +
+      '<a class="hover:text-primary" href="index.html#brands">Our Brands</a>' +
+      '<span class="material-symbols-outlined text-[14px]">chevron_right</span>' +
+      '<span class="text-on-surface">' + cat.brand + '</span>' +
+      '<span class="material-symbols-outlined text-[14px]">chevron_right</span>' +
+      '<span class="text-primary font-bold">' + cat.title + '</span>';
+
+    grid.innerHTML = cat.products.map(pr => `
+      <div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3">
+        <div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden">
+          <img alt="${pr.name}" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="${pr.img}">
+        </div>
+        <div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between">
+          <div class="space-y-1 w-full">
+            <span class="text-[11px] font-bold text-primary tracking-wider uppercase block">${pr.code}</span>
+            <h4 class="text-base font-bold text-on-surface tracking-tight">${pr.name}</h4>
+            <p class="text-xs text-on-surface-variant font-medium">${pr.desc}</p>
+            <p class="text-xs font-semibold text-slate-500 pt-1">${pr.size}</p>
+          </div>
+          <a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface"
+             href="${WA + encodeURIComponent(cat.brand + ' ' + pr.name)}" rel="noopener noreferrer" target="_blank">
+            <span>Inquire Now</span>
+            <span class="material-symbols-outlined text-[16px]">chat</span>
+          </a>
+        </div>
+      </div>`).join("");
+  }
+  document.addEventListener("DOMContentLoaded", render);
+</script>
+</body></html>
