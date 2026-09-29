@@ -29,6 +29,41 @@
       display: block;
       opacity: 1;
     }
+    /* ===== SCROLL / ENTRANCE ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.12); }
+      to   { transform: scale(1); }
+    }
+    .anim-fadeup {
+      opacity: 0;
+      animation: fadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .hero-zoom {
+      animation: heroZoom 8s ease-out forwards;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-fadeup, .hero-zoom, .reveal {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
   </style>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -102,22 +137,22 @@
 <main class="w-full flex flex-col overflow-x-hidden">
 <!-- SECTION 1: HERO -->
 <section class="w-full relative overflow-hidden bg-inverse-surface min-h-[580px] lg:min-h-[640px] flex items-center">
-<img alt="Al Amin Pal distribution logistics fleet in Palestine" class="absolute inset-0 w-full h-full object-cover object-center" src="hero-img.jpeg">
+<img alt="Al Amin Pal distribution logistics fleet in Palestine" class="hero-zoom absolute inset-0 w-full h-full object-cover object-center" src="hero-img.jpeg">
 <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40"></div>
 <div class="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 w-full z-10">
 <div class="max-w-2xl space-y-6 text-white">
-<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-container/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider shadow-sm">
+<div class="anim-fadeup inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-container/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider shadow-sm" style="animation-delay:.1s">
 <span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
 <span class="">Food Import &amp; Distribution • Palestine</span>
 </div>
-<h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+<h1 class="anim-fadeup text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight" style="animation-delay:.25s">
             Good food. Meaningful connections.
           </h1>
-<p class="text-base sm:text-lg text-gray-200 leading-relaxed font-normal">
+<p class="anim-fadeup text-base sm:text-lg text-gray-200 leading-relaxed font-normal" style="animation-delay:.4s">
             Al Amin Pal brings food brands to the Palestinian market through import and distribution, connecting international partners with the people and businesses we serve.
           </p>
-<div class="pt-4 flex flex-wrap items-center gap-4">
-<a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary-container text-white font-bold text-sm sm:text-base hover:bg-primary transition-all shadow-lg shadow-primary-container/30" href="#brands">
+<div class="anim-fadeup pt-4 flex flex-wrap items-center gap-4" style="animation-delay:.55s">
+<a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary-container text-white font-bold text-sm sm:text-base hover:bg-primary transition-all shadow-lg shadow-primary-container/30 hover:-translate-y-0.5" href="#brands">
 <span class="">Explore Our Brands</span>
 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
 </a>
@@ -379,21 +414,21 @@
 </div>
 <span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold">Fast Response</span>
 </div>
-<form class="space-y-4" id="inquiry-form" onsubmit="event.preventDefault(); document.getElementById('form-feedback').classList.remove('hidden'); this.reset();">
+<form class="space-y-4" id="inquiry-form" onsubmit="sendInquiry(event)">
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div class="space-y-1.5">
 <label class="text-xs font-bold text-on-surface">Your Name *</label>
-<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="e.g. Tariq Ahmad" required="" type="text">
+<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inq-name" placeholder="e.g. Tariq Ahmad" required="" type="text">
 </div>
 <div class="space-y-1.5">
 <label class="text-xs font-bold text-on-surface">Business / Store Name *</label>
-<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="e.g. Al Baraka Supermarket" required="" type="text">
+<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inq-business" placeholder="e.g. Al Baraka Supermarket" required="" type="text">
 </div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div class="space-y-1.5">
 <label class="text-xs font-bold text-on-surface">City (West Bank) *</label>
-<select class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" required="">
+<select class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inq-city" required="">
 <option disabled="" selected="" value="">Select City / Governorate</option>
 <option value="ramallah">Ramallah &amp; Al-Bireh</option>
 <option value="nablus">Nablus</option>
@@ -409,17 +444,17 @@
 </div>
 <div class="space-y-1.5">
 <label class="text-xs font-bold text-on-surface">Phone / Mobile *</label>
-<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="+970 59-XXXXXXX" required="" type="tel">
+<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inq-phone" placeholder="+970 59-XXXXXXX" required="" type="tel">
 </div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div class="space-y-1.5">
 <label class="text-xs font-bold text-on-surface">Email Address</label>
-<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="name@domain.com" type="email">
+<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inq-email" placeholder="name@domain.com" type="email">
 </div>
 <div class="space-y-1.5">
 <label class="text-xs font-bold text-on-surface">Brand of Interest *</label>
-<select class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" required="">
+<select class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inq-brand" required="">
 <option selected="" value="all">All Brands / General Portfolio</option>
 <option value="wefaq">Al Wefaq (Borgat Gummy)</option>
 <option value="arizona">Arizona Iced Tea</option>
@@ -438,7 +473,7 @@
 </button>
 <div class="hidden p-4 rounded-xl bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold flex items-center gap-2" id="form-feedback">
 <span class="material-symbols-outlined text-[20px]">check_circle</span>
-<span class="">Thank you! Your inquiry has been received. Our team will contact you shortly.</span>
+<span class="">Opening WhatsApp… please press send to submit your inquiry to our team.</span>
 </div>
 </form>
 </div>
@@ -557,6 +592,71 @@
     });
   });
 </script>
+<!-- INQUIRY FORM -> WHATSAPP -->
+<script>
+  function sendInquiry(e){
+    e.preventDefault();
+    const val = (id) => (document.getElementById(id) ? document.getElementById(id).value.trim() : '');
+    const name = val('inq-name');
+    const business = val('inq-business');
+    const citySel = document.getElementById('inq-city');
+    const city = citySel ? (citySel.options[citySel.selectedIndex] ? citySel.options[citySel.selectedIndex].text : '') : '';
+    const phone = val('inq-phone');
+    const email = val('inq-email');
+    const brandSel = document.getElementById('inq-brand');
+    const brand = brandSel ? (brandSel.options[brandSel.selectedIndex] ? brandSel.options[brandSel.selectedIndex].text : '') : '';
+    const message = val('inquiry-message');
 
+    let text = "*New Trade & Wholesale Inquiry - Al Amin Pal*\n\n";
+    text += "👤 Name: " + name + "\n";
+    text += "🏪 Business: " + business + "\n";
+    text += "📍 City: " + city + "\n";
+    text += "📞 Phone: " + phone + "\n";
+    if (email) text += "✉️ Email: " + email + "\n";
+    text += "🏷️ Brand of Interest: " + brand + "\n";
+    if (message) text += "📝 Details: " + message + "\n";
 
+    const url = "https://wa.me/970562820023?text=" + encodeURIComponent(text);
+    window.open(url, "_blank");
+
+    const fb = document.getElementById('form-feedback');
+    if (fb) fb.classList.remove('hidden');
+  }
+</script>
+<!-- SCROLL REVEAL ANIMATIONS -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const groups = [
+      '#about .lg\\:col-span-7, #about .lg\\:col-span-5',
+      '#what-we-do .text-center',
+      '#what-we-do .grid > div',
+      '#brands .text-center',
+      '#brands [role="tablist"] > button',
+      '.brand-content .grid > div',
+      '.max-w-4xl.mx-auto > *',
+      '#contact .lg\\:col-span-5, #contact .lg\\:col-span-7',
+      'footer .grid > div'
+    ];
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    groups.forEach(selector => {
+      const nodes = document.querySelectorAll(selector);
+      nodes.forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = Math.min(i * 90, 540) + 'ms';
+        observer.observe(el);
+      });
+    });
+  });
+</script>
 </body></html>
