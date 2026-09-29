@@ -1,0 +1,559 @@
+<!DOCTYPE html><html class="w-full min-h-screen overflow-x-hidden" dir="ltr" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Al Amin Pal Food Import &amp; Distribution - Good food. Meaningful connections.</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .brand-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .brand-content.active {
+      display: block;
+      opacity: 1;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#840010",
+            "primary-container": "#a81d22",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#ffbbb5",
+            "primary-fixed": "#ffdad7",
+            "secondary": "#236141",
+            "secondary-container": "#aef768",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#002111",
+            "secondary-fixed": "#b0f1c7",
+            "secondary-fixed-dim": "#95d4ac",
+            "on-secondary-fixed-variant": "#0f5132",
+            "tertiary": "#02492b",
+            "tertiary-container": "#184e34",
+            "surface": "#f7f9ff",
+            "surface-dim": "#d5dae4",
+            "surface-bright": "#f7f9ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f0f4fc",
+            "surface-container": "#e8eef8",
+            "surface-container-high": "#e0e6f2",
+            "surface-container-highest": "#d8dfea",
+            "on-surface": "#161c23",
+            "on-surface-variant": "#545f71",
+            "outline": "#757f8f",
+            "outline-variant": "#c4cbd8",
+            "inverse-surface": "#1e242c"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-white w-full min-h-screen overflow-x-hidden">
+<!-- TOP NAV HEADER -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high/80 shadow-sm transition-all w-full">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 sm:h-28 flex items-center justify-between">
+<a class="flex items-center group" href="#">
+<img alt="Al Amin Pal Logo" class="h-20 sm:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQOxQNUgmMOQ7predbSNcsVd0Nr27eU64SmF39ySWWaJa6wPOGINkW-I-PKhROYtDMUsx8I44YD2YuBb0PH8uQ98IzGDlopGK4hI4Xx0aYD6Dmk165FvwSxH39C4rbEsglyZMCEvxdo4Sb9Hxt57RCfJF85_f4tqjXPZQGrOE6J85uMdWrbREMCKhbKfKCJyT26cM3AZ94lVF9mS2rUdalLi58FEe9dc1Vu0_HqWtGZUKY0YsY8TW-5z0gBYbVol0O784">
+</a>
+<nav class="hidden md:flex items-center gap-9 font-semibold text-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors py-1" href="#about">About Us</a>
+<a class="hover:text-primary transition-colors py-1" href="#what-we-do">What We Do</a>
+<a class="hover:text-primary transition-colors py-1" href="#brands">Our Brands</a>
+<a class="hover:text-primary transition-colors py-1" href="#contact">Contact Us</a>
+</nav>
+<div class="flex items-center gap-3">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-secondary text-white text-xs sm:text-sm font-bold hover:bg-tertiary transition-all shadow-sm" href="https://wa.me/970562820023" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span class="">Let’s Connect</span>
+</a>
+</div>
+</div>
+</header>
+<main class="w-full flex flex-col overflow-x-hidden">
+<!-- SECTION 1: HERO -->
+<section class="w-full relative overflow-hidden bg-inverse-surface min-h-[580px] lg:min-h-[640px] flex items-center">
+<img alt="Al Amin Pal distribution logistics fleet in Palestine" class="absolute inset-0 w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDzoz7oULQvvp32Q88aDGTthIBtLaqrkTRno7Pr7FLppzLL9__WBrjAFllUu3hlm13jXWJMOIPjAJKRkWxPEezLLxZzNxawEt3C5IuhE7n7tSIcJkkOadkta1IN_2IGowqD9DSlvgSSLHen97BjrNq7ChdCiAH7sallsujzTZvvXtKSj2XZJgPFIAv2pnG-Ye25MQ0i9gIg6RQJh-lIVTe8RFeTBPknLMsLi_i9Kka1yn7jJJ_J1K93g">
+<div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40"></div>
+<div class="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 w-full z-10">
+<div class="max-w-2xl space-y-6 text-white">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-container/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
+<span class="">Food Import &amp; Distribution • Palestine</span>
+</div>
+<h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+            Good food. Meaningful connections.
+          </h1>
+<p class="text-base sm:text-lg text-gray-200 leading-relaxed font-normal">
+            Al Amin Pal brings food brands to the Palestinian market through import and distribution, connecting international partners with the people and businesses we serve.
+          </p>
+<div class="pt-4 flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary-container text-white font-bold text-sm sm:text-base hover:bg-primary transition-all shadow-lg shadow-primary-container/30" href="#brands">
+<span class="">Explore Our Brands</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold text-sm sm:text-base border border-white/25 transition-all" href="#contact">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">chat</span>
+<span class="">Let’s Connect</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: ABOUT US -->
+<section class="w-full py-20 lg:py-28 bg-surface-container-lowest border-b border-surface-container-high" id="about">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<div class="lg:col-span-7 space-y-6">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-fixed text-primary font-bold text-xs uppercase tracking-wider">
+<span class="">ABOUT US</span>
+</div>
+<h2 class="text-2xl sm:text-4xl font-extrabold text-on-surface tracking-tight leading-tight">
+              Rooted in Palestine. Open to the world.
+            </h2>
+<div class="space-y-4 text-sm sm:text-base text-on-surface-variant leading-relaxed">
+<p class="">
+                Based in Ramallah, Al Amin Pal is a food trading company since 2006 with a simple belief: lasting partnerships begin with understanding people.
+              </p>
+<p class="">
+                We bring this perspective to the brands we select, the relationships we build, and our work in the Palestinian market.
+              </p>
+<p class="">
+                Our commitment begins with care in what we choose and how we work—with our suppliers, local businesses, and the communities we are part of.
+              </p>
+</div>
+<div class="pt-4 border-t border-surface-container-high flex items-center">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-surface-container-high bg-surface-container-lowest hover:bg-surface-container text-xs sm:text-sm font-bold text-primary transition-all shadow-sm group" href="https://maps.google.com/?q=Ramallah,+Palestine" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px] text-primary group-hover:scale-110 transition-transform">location_on</span>
+<span class="">Find Us on Google Maps</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="relative rounded-3xl overflow-hidden shadow-2xl border border-surface-container-high aspect-[4/3] lg:aspect-square">
+<img alt="Al Amin Pal Logistics &amp; Supermarket Presence" class="w-full h-full object-cover rounded-3xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG7MtLAaw8HNtcpHH7Bk1Dl7OlRDuDYLOoBWRK8Tsg0JGEx3JevL9JjzkMeSfvqQAdW8TFHs2MZGaHQrmo1tSPE8yoAC4tNQRTX4pv3V4IzfGVUEciMPSc-ZNbpJZQoM9lY15WIo5_YHo3K9GRJPj0nk0uuzJ3Mkaccjz8rSkaWde8Z3g9hJGTPHHKbp7rswuNcNh4lLbxOtofoG9BsJOyXQZLunNm31IfuLdOHOUZro807i7FQs_aMA-6BMgHveE-fx4">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: WHAT WE DO -->
+<section class="w-full py-20 lg:py-24 bg-surface" id="what-we-do">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-bold text-xs uppercase tracking-wider">
+<span class="">WHAT WE DO</span>
+</div>
+<h2 class="text-2xl sm:text-4xl font-extrabold text-on-surface tracking-tight">
+            From brand to shelf.
+          </h2>
+<p class="text-sm sm:text-base text-on-surface-variant leading-relaxed">
+            We support food brands through import, distribution, in-store merchandising and marketing, serving shops, supermarkets and wholesalers in Ramallah, Nablus, Tulkarm and across the West Bank.
+          </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1: Import -->
+<div class="p-7 rounded-3xl bg-surface-container-lowest border border-surface-container-high shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[28px]">flight_land</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">
+                Import
+              </h3>
+<p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Bringing food products from international markets into Palestine.
+              </p>
+</div>
+<div class="pt-6 mt-4 border-t border-surface-container-high flex items-center text-xs font-bold text-primary gap-1">
+<span class="">Global Sourcing</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- Card 2: Distribution -->
+<div class="p-7 rounded-3xl bg-surface-container-lowest border border-surface-container-high shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[28px]">local_shipping</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface group-hover:text-secondary transition-colors">
+                Distribution
+              </h3>
+<p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Connecting our portfolio with local retail and wholesale businesses.
+              </p>
+</div>
+<div class="pt-6 mt-4 border-t border-surface-container-high flex items-center text-xs font-bold text-secondary gap-1">
+<span class="">All West Bank Hubs</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- Card 3: In-Store Merchandising -->
+<div class="p-7 rounded-3xl bg-surface-container-lowest border border-surface-container-high shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[28px]">storefront</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">
+                In-Store Merchandising
+              </h3>
+<p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Helping products stand out through organised, considered displays.
+              </p>
+</div>
+<div class="pt-6 mt-4 border-t border-surface-container-high flex items-center text-xs font-bold text-primary gap-1">
+<span class="">Premium Shelf Presence</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- Card 4: Marketing -->
+<div class="p-7 rounded-3xl bg-surface-container-lowest border border-surface-container-high shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[28px]">campaign</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface group-hover:text-secondary transition-colors">
+                Marketing
+              </h3>
+<p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Introducing products to local audiences through promotions and brand activities.
+              </p>
+</div>
+<div class="pt-6 mt-4 border-t border-surface-container-high flex items-center text-xs font-bold text-secondary gap-1">
+<span class="">Market Engagement</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: OUR BRANDS -->
+<section class="w-full py-20 lg:py-24 bg-surface-container-low border-y border-surface-container-high" id="brands">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center mx-auto mb-10 space-y-2.5 max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-fixed text-primary font-bold text-xs uppercase tracking-wider">
+<span class="">OUR BRANDS</span>
+</div>
+<h2 class="text-2xl sm:text-4xl font-extrabold text-on-surface tracking-tight">
+            A considered selection for everyday life.
+          </h2>
+<p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+            Discover the food brands in our portfolio and explore the products available from each.
+          </p>
+</div>
+<!-- Brand Switcher Tabs -->
+<div class="flex items-center justify-center flex-wrap gap-2.5 sm:gap-3 mb-10" role="tablist">
+<button class="brand-nav-tab flex items-center gap-3 px-7 py-4 rounded-2xl transition-all shadow-sm border bg-surface-container-high text-on-surface border-surface-container-high active-tab" data-brand-tab="arizona" role="tab" type="button">
+<img alt="Arizona Logo" class="h-10 sm:h-11 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XBPktPSEZJ5qBBejJEVmkeKWdtAAN_TjvdYxPA3VzZFpJJMtRokAiWnfKmSsLF5GXUBl3BAxLHF5BNA-_wRIiRP8j_skK3PTQHe7PITm3MJPjktHfdrkLOFQVkTmp16PG5DBx-bpzBHpOBA2PapT6XQWlA8th5Q3O_VP4oP2EHZESdDxU9TYntocGyihL7zN6cSsOxAz29zXO_hG5hmmOrf0BfZDXnHqCLv1EaRTUoWq_RWKiAMsGjgrMU">
+
+<span class="w-2 h-2 rounded-full bg-secondary"></span></button>
+<button class="brand-nav-tab flex items-center gap-3 px-7 py-4 rounded-2xl transition-all shadow-sm border hover:bg-surface-container bg-surface-container-lowest text-on-surface border-outline-variant/60" data-brand-tab="wefaq" role="tab" type="button">
+<img alt="Al Wefaq Logo" class="h-10 sm:h-11 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiuD1xh0SkzrIi-tqenwGYsY8g7uOOWYBMJzyxTTt_Jh4JJ47eqTMoURoL66tR55_KZ9saFA0WW0yaqp3ZjLKilqjUSFbMdqPgzcmLwwzNXnAzd89PYsLqzYoFodUmR0LQTcJRdgcA_RoVHaQaV7G0b8D0VdVgap8Fcp5hvMPPH23ZDtt3GutLhNpqWUnYQN8QIxhULN4GGW6W2PlDzFevAbfb1tI2XMko1zXtBsIfojMgb6zUhgtvGc7t8QPp7yZfs2c">
+</button>
+<button class="brand-nav-tab flex items-center gap-3 px-7 py-4 rounded-2xl transition-all shadow-sm border hover:bg-surface-container bg-surface-container-lowest border-outline-variant/60 text-on-surface" data-brand-tab="kitco" role="tab" type="button">
+<img alt="KITCO Logo" class="h-10 sm:h-11 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi27gIF2yuW1r3HD0aAQqTMODrZi4VVg_Vg1uAKZASFNOEUFYeKlbva-7RQnAnjrNkWaIentPPyTGh0hyhhgDpFwUGIyi4cYf3XBfnFJLxeYvA7N-t-JGdhUf0M18Gp3Etfe95Gy2hu0VaDH00wDuliEcZ3TG0cYh5FdG_ADM9yXPm5u5D7G8xZF7JCuSiWQCs_KEtuMu0R1-NVIyiwGqtJFxnMTmtTwRjWyPu4yFgR-ps9aXhwbZ01IUl6lesTEqNyJ8">
+</button>
+<button class="brand-nav-tab flex items-center gap-3 px-7 py-4 rounded-2xl transition-all shadow-sm border hover:bg-surface-container bg-surface-container-lowest border-outline-variant/60 text-on-surface" data-brand-tab="hero" role="tab" type="button">
+<img alt="Hero Logo" class="h-10 sm:h-11 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WwVGxYTsFwAhRiOqM7jp8Kv59BBDlsj6RD1N4gtH-sRpAXjDxK-KI_l2SHncWs0m4soY1xujuBJJwc7rLrP7ujy7HdYCxZZp1pG7KOgToQo1WDVPdppYIIdqh04z9Nhsh1DwaEjirqLNWuSHYfvIznCYByR21LJIOHXIxr1gozRy3HyQURIEj6bgA0bxFDVyum7lpudjuygVtkeVPxr1QPyx3NLBmmby6DsqBxFARlOUVDCLWcceHoSWzY">
+</button>
+</div>
+<!-- Brand 1: Al Wefaq (Borgat Gummy Tubs 160g) -->
+<div class="brand-content hidden" id="brand-content-wefaq"><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Borgat Gummy Sour Strawberry" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMvRmwR2nBzRGH7ULqnQQGV8E2L2d-NWy9MaanmmSrYP6yWk_BZ-zS9m7cvBMb30eEkoYt7fBEO0rDq1tuexeTtWlhEwP6GqPydovmSNVsCnhyVTcqAAGnyNDI5gZ3FBdSPrhpNzoNZqcsPdBQxDjN_xvrQ5asr_3n7aARCxxjEO_P1Yhw_Gw0uZ7sNknjGtyNb6CScGxkbttr2QplyMOpxpFfhy9-dLPHl1U23Cv17vjpHNAOhwvPl1jBLG23f_Ca8JA"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-primary tracking-wider uppercase block">BW-01</span><h4 class="text-base font-bold text-on-surface tracking-tight">Sour Strawberry</h4><p class="text-xs text-on-surface-variant font-medium">حلوى جيلي الفراولة الحامضة</p><p class="text-xs font-semibold text-slate-500 pt-1">160g Tub • Case of 24</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Sour%20Strawberry%20(160g)" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Borgat Gummy Bumble Bear" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBnhPBQWwnb9yHWh3-G13GNWvSL7vVSVJBE_kQ6_W20js0JkARHQxYc0JmpMLUZ9pfA_1Y8LmPa0ySoJRdZisNXTaZpKQyd5OMtmLrKOrZZS88ixyxogqgwxcOqwzwvQ6sfM-tQ_70OWBIR-LrCI8bfgRaoj2hsPYBEw4riOT04og_dllZN_zlBqigHhOCnsIWi_PvAWk77X4LEB7oo9qXGQEq8ztFzrHUrUEcARqvoWh4rwrzy_jyvfdck9EPmwopNhg"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-secondary tracking-wider uppercase block">BW-02</span><h4 class="text-base font-bold text-on-surface tracking-tight">Bumble Bear</h4><p class="text-xs text-on-surface-variant font-medium">دببة الجيلي بنكهات الفواكه</p><p class="text-xs font-semibold text-slate-500 pt-1">160g Tub • Case of 24</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Bumble%20Bear%20(160g)" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Borgat Gummy Peach Rings" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARCGY_WMSGN_MJZx7b01eGTbngkCdyf1taAUbvlTJ0iy8qZr1-pXvpyV9l-zg0A5ny--iYT08xuuNhOAkmqM_hO1tnVAfhFqYr-7kdXa0k9xQxO1I7Sm6wDiJYje8NJ3n3-R-gLGSFX2mSS7oKmRbjuTtTv48caoc7NZTfs6NaCiaFMAPjkjbZcHnZ10YUhh-CRRB8451iwTwV4Pgtj7UcK9NWayWPRabEcAeI9_XLV1AhmSIZx5udYZN6cYKx2X2koII"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-secondary tracking-wider uppercase block">BW-03</span><h4 class="text-base font-bold text-on-surface tracking-tight">Peach Rings</h4><p class="text-xs text-on-surface-variant font-medium">حلقات الخوخ المنعشة بالسكر</p><p class="text-xs font-semibold text-slate-500 pt-1">160g Tub • Case of 24</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Peach%20Rings%20(160g)" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Borgat Gummy Celebration Cakes" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL6rCN8PwT-MH32Alvn-znOCsSPbZPch3Fh4ACGw2Zh6hCeK6US0AJ231WkvIaTOyxUA8a94Q86ql1buQiYKDwLjJ_kMfqaw9-VP2-eHP4r-mXj0cjAgrSaLJsof5QZIFLGs3IWarzJSIasJNSZLonF2nQ4cj3qOIPaXcg2X1yfXpmwmB3qGCgQqRKyk5Atsh1r8ZawuyOUMdNpq8fhjOpmGMD-IM79W1FLClYRcpIHQ2uvolUTzEB_Djj4ougv_hpnII"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-primary tracking-wider uppercase block">BW-04</span><h4 class="text-base font-bold text-on-surface tracking-tight">Celebration Cakes</h4><p class="text-xs text-on-surface-variant font-medium">جيلي كيك كاندي الحفلات</p><p class="text-xs font-semibold text-slate-500 pt-1">160g Tub • Case of 24</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Celebration%20Cakes%20(160g)" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div></div></div>
+<!-- Brand 2: Arizona -->
+<div class="brand-content active" id="brand-content-arizona"><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Arizona Green Tea with Honey" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1W_ize1jVgpcsnYFGFZykfLGVIXCvH_qgepRNrL0F-CsgnkUg1BFOhFX2UD5dspP0u0-4QWjHfAa55lFsaHDa0mk9_tq-JB_8KG1je8L9VxDQRjsP4d0oAe7oGroT5nWzuMhSp0CXdst9S-wDv1ZfMUP3n313KGHskTz9vRzPG-Pju8Yki7gSOuOhj2JihIszonmztDDeQwVGeGb89pbL_WGCMUYTkPajB_vK4tA8gMNN0HA8C0cDXyeklo"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><h4 class="text-base font-bold text-on-surface tracking-tight">Green Tea with Honey</h4></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Arizona%20Green%20Tea" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Arizona Mucho Mango Juice" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1W_ize1jVgpcsnYFGFZykfLGVIXCvH_qgepRNrL0F-CsgnkUg1BFOhFX2UD5dspP0u0-4QWjHfAa55lFsaHDa0mk9_tq-JB_8KG1je8L9VxDQRjsP4d0oAe7oGroT5nWzuMhSp0CXdst9S-wDv1ZfMUP3n313KGHskTz9vRzPG-Pju8Yki7gSOuOhj2JihIszonmztDDeQwVGeGb89pbL_WGCMUYTkPajB_vK4tA8gMNN0HA8C0cDXyeklo"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><h4 class="text-base font-bold text-on-surface tracking-tight">Mucho Mango Juice</h4></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Arizona%20Mucho%20Mango" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Arizona Watermelon Cocktail" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1W_ize1jVgpcsnYFGFZykfLGVIXCvH_qgepRNrL0F-CsgnkUg1BFOhFX2UD5dspP0u0-4QWjHfAa55lFsaHDa0mk9_tq-JB_8KG1je8L9VxDQRjsP4d0oAe7oGroT5nWzuMhSp0CXdst9S-wDv1ZfMUP3n313KGHskTz9vRzPG-Pju8Yki7gSOuOhj2JihIszonmztDDeQwVGeGb89pbL_WGCMUYTkPajB_vK4tA8gMNN0HA8C0cDXyeklo"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><h4 class="text-base font-bold text-on-surface tracking-tight">Watermelon Cocktail</h4></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Arizona%20Watermelon" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Arizona Lemon Iced Tea" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1W_ize1jVgpcsnYFGFZykfLGVIXCvH_qgepRNrL0F-CsgnkUg1BFOhFX2UD5dspP0u0-4QWjHfAa55lFsaHDa0mk9_tq-JB_8KG1je8L9VxDQRjsP4d0oAe7oGroT5nWzuMhSp0CXdst9S-wDv1ZfMUP3n313KGHskTz9vRzPG-Pju8Yki7gSOuOhj2JihIszonmztDDeQwVGeGb89pbL_WGCMUYTkPajB_vK4tA8gMNN0HA8C0cDXyeklo"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><h4 class="text-base font-bold text-on-surface tracking-tight">Lemon Iced Tea</h4></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Arizona%20Lemon%20Tea" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div></div></div>
+<!-- Brand 3: KITCO -->
+<div class="brand-content hidden" id="brand-content-kitco"><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="KITCO Crisps Salted" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VMlKIS6LGwHAv8htp4dL9eBnMvhHGJM5XCypo7TBpFPHy_p4v4e5Gf2mTSvaldvkslguSZ-cKhaiC_vMMy_V8zO-ErRerVVkLOyCL8NNNZHB5Xj7QDsT2ibfIMdKt3v0d7BRESLTLOT8rNQefM0ia5TnTh-dE5MlVAGVZKVVdpcoWewrsBGbaM1j-ZbNogM4xWE0ppFNsJeEWkHuDXR_qLPlPlm7hdtt_RNIkmHnX4zbyTg0-jYxosabQ"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-secondary tracking-wider uppercase block">KC-01</span><h4 class="text-base font-bold text-on-surface tracking-tight">Crisps Salted</h4><p class="text-xs text-on-surface-variant font-medium">رقائق البطاطس المقرمشة بالملح</p><p class="text-xs font-semibold text-slate-500 pt-1">160g • Case of 20</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20KITCO%20Salted" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="KITCO Sour Cream &amp; Onion" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VMlKIS6LGwHAv8htp4dL9eBnMvhHGJM5XCypo7TBpFPHy_p4v4e5Gf2mTSvaldvkslguSZ-cKhaiC_vMMy_V8zO-ErRerVVkLOyCL8NNNZHB5Xj7QDsT2ibfIMdKt3v0d7BRESLTLOT8rNQefM0ia5TnTh-dE5MlVAGVZKVVdpcoWewrsBGbaM1j-ZbNogM4xWE0ppFNsJeEWkHuDXR_qLPlPlm7hdtt_RNIkmHnX4zbyTg0-jYxosabQ"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-secondary tracking-wider uppercase block">KC-02</span><h4 class="text-base font-bold text-on-surface tracking-tight">Sour Cream &amp; Onion</h4><p class="text-xs text-on-surface-variant font-medium">بطاطس بالكريمة الحامضة والبصل</p><p class="text-xs font-semibold text-slate-500 pt-1">160g • Case of 20</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20KITCO%20Sour%20Cream" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="KITCO Stix" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VMlKIS6LGwHAv8htp4dL9eBnMvhHGJM5XCypo7TBpFPHy_p4v4e5Gf2mTSvaldvkslguSZ-cKhaiC_vMMy_V8zO-ErRerVVkLOyCL8NNNZHB5Xj7QDsT2ibfIMdKt3v0d7BRESLTLOT8rNQefM0ia5TnTh-dE5MlVAGVZKVVdpcoWewrsBGbaM1j-ZbNogM4xWE0ppFNsJeEWkHuDXR_qLPlPlm7hdtt_RNIkmHnX4zbyTg0-jYxosabQ"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-secondary tracking-wider uppercase block">KC-03</span><h4 class="text-base font-bold text-on-surface tracking-tight">Potato Stix</h4><p class="text-xs text-on-surface-variant font-medium">عيدان البطاطس المقرمشة الأصلية</p><p class="text-xs font-semibold text-slate-500 pt-1">45g Pack • Case of 24</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20KITCO%20Stix" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="KITCO Tortilla Chips" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VMlKIS6LGwHAv8htp4dL9eBnMvhHGJM5XCypo7TBpFPHy_p4v4e5Gf2mTSvaldvkslguSZ-cKhaiC_vMMy_V8zO-ErRerVVkLOyCL8NNNZHB5Xj7QDsT2ibfIMdKt3v0d7BRESLTLOT8rNQefM0ia5TnTh-dE5MlVAGVZKVVdpcoWewrsBGbaM1j-ZbNogM4xWE0ppFNsJeEWkHuDXR_qLPlPlm7hdtt_RNIkmHnX4zbyTg0-jYxosabQ"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-secondary tracking-wider uppercase block">KC-04</span><h4 class="text-base font-bold text-on-surface tracking-tight">Nacho Tortilla Chips</h4><p class="text-xs text-on-surface-variant font-medium">رقائق تورتيلا الذرة بالجبن</p><p class="text-xs font-semibold text-slate-500 pt-1">180g • Case of 16</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20KITCO%20Tortilla" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div></div></div>
+<!-- Brand 4: Hero -->
+<div class="brand-content hidden" id="brand-content-hero"><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Hero Strawberry Jam" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VRcFYiJb0_rUCBgbdqSp5txlwoLInI_-taRiTKNJEvBYcCYOuwDXi6rSOnKnaRE2w7EVey6-PwV26oZ1IXisWYQ87tA3rqMtHquSMjoWHKq0qENNU4f1FBy5PwnSu1oFVi0YVKZu6rA3Lv4E_bNp18ze8opzWzifd6_5pg5i5zTCk5YgUD5eogzX0_Z0YzN15h6BVdd8m-pGiSjVwOY0l_Kroi-wBb4K9YuiQvke2HPgG6ERHx0o2vxIAE"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-primary tracking-wider uppercase block">HR-01</span><h4 class="text-base font-bold text-on-surface tracking-tight">Strawberry Jam</h4><p class="text-xs text-on-surface-variant font-medium">مربى الفراولة السويسري الفاخر</p><p class="text-xs font-semibold text-slate-500 pt-1">350g Jar • Case of 12</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Hero%20Strawberry%20Jam" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Hero Apricot Jam" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VRcFYiJb0_rUCBgbdqSp5txlwoLInI_-taRiTKNJEvBYcCYOuwDXi6rSOnKnaRE2w7EVey6-PwV26oZ1IXisWYQ87tA3rqMtHquSMjoWHKq0qENNU4f1FBy5PwnSu1oFVi0YVKZu6rA3Lv4E_bNp18ze8opzWzifd6_5pg5i5zTCk5YgUD5eogzX0_Z0YzN15h6BVdd8m-pGiSjVwOY0l_Kroi-wBb4K9YuiQvke2HPgG6ERHx0o2vxIAE"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-primary tracking-wider uppercase block">HR-02</span><h4 class="text-base font-bold text-on-surface tracking-tight">Apricot &amp; Fig Jam</h4><p class="text-xs text-on-surface-variant font-medium">مربى المشمش والتين الطبيعي</p><p class="text-xs font-semibold text-slate-500 pt-1">350g Jar • Case of 12</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Hero%20Apricot%20Jam" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Hero Baby Food" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VRcFYiJb0_rUCBgbdqSp5txlwoLInI_-taRiTKNJEvBYcCYOuwDXi6rSOnKnaRE2w7EVey6-PwV26oZ1IXisWYQ87tA3rqMtHquSMjoWHKq0qENNU4f1FBy5PwnSu1oFVi0YVKZu6rA3Lv4E_bNp18ze8opzWzifd6_5pg5i5zTCk5YgUD5eogzX0_Z0YzN15h6BVdd8m-pGiSjVwOY0l_Kroi-wBb4K9YuiQvke2HPgG6ERHx0o2vxIAE"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-primary tracking-wider uppercase block">HR-03</span><h4 class="text-base font-bold text-on-surface tracking-tight">Hero Baby Mixed Fruits</h4><p class="text-xs text-on-surface-variant font-medium">غذاء الأطفال فواكه مشكلة طبيعي</p><p class="text-xs font-semibold text-slate-500 pt-1">120g • Case of 24 Jars</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Hero%20Baby%20Food" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3"><div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden"><img alt="Hero Natural Honey" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VRcFYiJb0_rUCBgbdqSp5txlwoLInI_-taRiTKNJEvBYcCYOuwDXi6rSOnKnaRE2w7EVey6-PwV26oZ1IXisWYQ87tA3rqMtHquSMjoWHKq0qENNU4f1FBy5PwnSu1oFVi0YVKZu6rA3Lv4E_bNp18ze8opzWzifd6_5pg5i5zTCk5YgUD5eogzX0_Z0YzN15h6BVdd8m-pGiSjVwOY0l_Kroi-wBb4K9YuiQvke2HPgG6ERHx0o2vxIAE"></div><div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between"><div class="space-y-1 w-full"><span class="text-[11px] font-bold text-primary tracking-wider uppercase block">HR-04</span><h4 class="text-base font-bold text-on-surface tracking-tight">Pure Blossom Honey</h4><p class="text-xs text-on-surface-variant font-medium">عسل الزهور الطبيعي الصافي</p><p class="text-xs font-semibold text-slate-500 pt-1">500g Jar • Case of 12</p></div><a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface" href="https://wa.me/970562820023?text=Hello%20Al%20Amin%20Pal%2C%20I%20would%20like%20to%20inquire%20about%3A%20Hero%20Natural%20Honey" rel="noopener noreferrer" target="_blank"><span class="">More Details</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div></div></div>
+</div>
+</section>
+<!-- SECTION 5: BRAND BANNER QUOTE -->
+<section class="w-full relative py-24 sm:py-32 overflow-hidden bg-inverse-surface flex items-center justify-center text-center">
+<img alt="Al Amin Pal logistics and operations fleet" class="absolute inset-0 w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AEtjO1WKTmdb_113YXKgpvOARckmIxqjvOskjKBiqTS0yxQ2Zz3EayReXt1JRj3sfT0P92YoB8hVISRbd9E7JnoCpheM9AvCMOj5TfTR_opzfIq2FiG14i9t671-aQFo9rxe_uaT2eVygm8VW-3ZMdSX1jpLKya71CiYr_SW3HgwtAwVI89sClDrKv6lPciZvGJevV4lJCJNe0z1JUs6nX9hiXVHv7uzOanAIih95t7wzhZsJVwIN9VcKAKm7q8">
+<div class="absolute inset-0 bg-black/75 backdrop-blur-[2px]"></div>
+<div class="relative max-w-4xl mx-auto px-6 lg:px-12 z-10 space-y-6 text-white">
+<span class="material-symbols-outlined text-4xl text-primary-fixed">format_quote</span>
+<blockquote class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug">
+          “Food is part of the moments that bring us together.”
+        </blockquote>
+<div class="flex items-center justify-center gap-3 pt-2">
+<div class="h-0.5 w-8 bg-secondary-fixed"></div>
+<span class="text-xs sm:text-sm font-bold tracking-widest uppercase text-gray-300">Al Amin Pal</span>
+<div class="h-0.5 w-8 bg-secondary-fixed"></div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: CONTACT US -->
+<section class="w-full py-20 lg:py-24 bg-surface" id="contact">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Contact Info Left Column -->
+<div class="lg:col-span-5 space-y-8">
+<div class="space-y-3">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-bold text-xs uppercase tracking-wider">
+<span class="">CONTACT US</span>
+</div>
+<h2 class="text-2xl sm:text-4xl font-extrabold text-on-surface tracking-tight">
+                Good connections start with a conversation.
+              </h2>
+<div class="space-y-2 text-sm sm:text-base text-on-surface-variant leading-relaxed pt-2">
+<p class="font-medium text-on-surface">Working in food? We’d love to hear from you.</p>
+<p class="">Whether you’re interested in our products, exploring an opportunity or simply getting to know us, let’s connect—in Palestine and beyond.</p>
+</div>
+</div>
+<!-- Contact Details Card -->
+<div class="p-6 rounded-3xl bg-surface-container-lowest border border-surface-container-high shadow-md space-y-5">
+<h3 class="text-base font-bold text-on-surface">Get in Touch</h3>
+<div class="space-y-4 text-xs sm:text-sm text-on-surface-variant">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+</div>
+<div>
+<span class="block font-bold text-on-surface">Headquarters &amp; Hub</span>
+<span class="">Ramallah, Palestine</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</div>
+<div>
+<span class="block font-bold text-on-surface">Phone / WhatsApp</span>
+<a class="hover:text-primary font-bold text-on-surface transition-colors" dir="ltr" href="tel:+970562820023">+970 56 282 0023</a>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div>
+<span class="block font-bold text-on-surface">Email Inquiries</span>
+<a class="hover:text-primary transition-colors" href="mailto:info@alaminpal.ps">info@alaminpal.ps</a>&nbsp;</div>
+</div>
+</div>
+<div class="pt-2">
+<a class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-secondary text-white font-bold text-xs hover:bg-tertiary transition-all shadow-sm" href="https://wa.me/970562820023" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span class="">Direct WhatsApp Chat</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Professional Inquiry Form -->
+<div class="lg:col-span-7">
+<div class="p-8 sm:p-10 rounded-3xl bg-surface-container-lowest border border-surface-container-high shadow-xl space-y-6">
+<div class="flex items-center justify-between pb-5 border-b border-surface-container-high">
+<div>
+<h3 class="text-xl font-bold text-on-surface">Trade &amp; Wholesale Inquiry</h3>
+<p class="text-xs sm:text-sm text-on-surface-variant mt-1">Fill out the details below and our team will get in touch promptly.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold">Fast Response</span>
+</div>
+<form class="space-y-4" id="inquiry-form" onsubmit="event.preventDefault(); document.getElementById('form-feedback').classList.remove('hidden'); this.reset();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-on-surface">Your Name *</label>
+<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="e.g. Tariq Ahmad" required="" type="text">
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-on-surface">Business / Store Name *</label>
+<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="e.g. Al Baraka Supermarket" required="" type="text">
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-on-surface">City (West Bank) *</label>
+<select class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" required="">
+<option disabled="" selected="" value="">Select City / Governorate</option>
+<option value="ramallah">Ramallah &amp; Al-Bireh</option>
+<option value="nablus">Nablus</option>
+<option value="hebron">Hebron</option>
+<option value="jenin">Jenin</option>
+<option value="tulkarm">Tulkarm</option>
+<option value="bethlehem">Bethlehem</option>
+<option value="qalqilya">Qalqilya</option>
+<option value="jericho">Jericho &amp; Jordan Valley</option>
+<option value="salfit">Salfit</option>
+<option value="tubas">Tubas</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-on-surface">Phone / Mobile *</label>
+<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="+970 59-XXXXXXX" required="" type="tel">
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-on-surface">Email Address</label>
+<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="name@domain.com" type="email">
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-on-surface">Brand of Interest *</label>
+<select class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" required="">
+<option selected="" value="all">All Brands / General Portfolio</option>
+<option value="wefaq">Al Wefaq (Borgat Gummy)</option>
+<option value="arizona">Arizona Iced Tea</option>
+<option value="kitco">KITCO Snacks</option>
+<option value="hero">Hero Swiss Preserves</option>
+</select>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-on-surface">Message / Order Details</label>
+<textarea class="w-full p-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inquiry-message" placeholder="Tell us about your distribution needs, required volumes, or questions..." rows="3"></textarea>
+</div>
+<button class="w-full py-4 rounded-xl bg-primary-container text-white font-bold text-sm hover:bg-primary transition-all shadow-md shadow-primary-container/25 flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span class="">Send Inquiry</span>
+</button>
+<div class="hidden p-4 rounded-xl bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold flex items-center gap-2" id="form-feedback">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span class="">Thank you! Your inquiry has been received. Our team will contact you shortly.</span>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="w-full bg-surface-container-low border-t border-surface-container-high pt-16 pb-10">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
+<div class="lg:col-span-5 space-y-4">
+<a class="inline-block" href="#">
+<img alt="Al Amin Pal Food Import &amp; Distribution" class="h-20 sm:h-24 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-2foUVjNq8wmm7KT7FXtbkSlnYltUgd4laUiPNRYSkvDHABWhIlVKYqNfKLBSZdxFnnfP9DVQpaGJi2WbiVJD-xFekYgNZ3SEIUAyLmwLdl0X8paVFfKljouKUhiuvtietNj0KgsOmtQSg0u8UPxLWUkC882CO-oPt-0LwGlyH9mp2sQd0fD9FdhtLWVvzpAzEnUnS7t7u7RAHBgFm8eeY7SzMu9uwx6W3SQSeDOr1t6LKKcjAzOBv1TLXIrkA52LluoMtqq_l9u97GM">
+</a>
+<div class="space-y-1">
+<h4 class="text-sm font-bold text-on-surface">Al Amin Pal Food Import &amp; Distribution</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+              Connecting food brands with the Palestinian market.
+            </p>
+</div>
+</div>
+<div class="lg:col-span-4 space-y-3">
+<h4 class="text-sm font-bold text-on-surface">Contact &amp; Location</h4>
+<ul class="space-y-2.5 text-xs text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+<span class="">Ramallah, Palestine</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">call</span>
+<a class="hover:text-primary font-bold text-on-surface transition-colors" dir="ltr" href="tel:+970562820023">+970 56 282 0023</a>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">mail</span>
+<span class="">info@alaminpal.ps / info@alaminpalco.com</span>
+</li>
+</ul>
+<div class="pt-2 space-y-2">
+<span class="text-[11px] font-bold text-on-surface block uppercase tracking-wider">Social Channels:</span>
+<div class="flex items-center gap-2.5">
+<a aria-label="Facebook Page" class="w-8 h-8 rounded-lg bg-surface-container-lowest border border-surface-container-high hover:bg-primary hover:text-white text-on-surface-variant flex items-center justify-center transition-all shadow-sm" href="https://www.facebook.com/alaminpalco/" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a aria-label="Instagram Profile" class="w-8 h-8 rounded-lg bg-surface-container-lowest border border-surface-container-high hover:bg-primary hover:text-white text-on-surface-variant flex items-center justify-center transition-all shadow-sm" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a aria-label="LinkedIn Profile" class="w-8 h-8 rounded-lg bg-surface-container-lowest border border-surface-container-high hover:bg-primary hover:text-white text-on-surface-variant flex items-center justify-center transition-all shadow-sm" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="lg:col-span-3 space-y-3">
+<h4 class="text-sm font-bold text-on-surface">Our Brands</h4>
+<ul class="space-y-2 text-xs text-on-surface-variant">
+<li class=""><a class="hover:text-primary transition-colors" href="#brands">Al Wefaq (Borgat Gummy)</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#brands">Arizona Iced Tea</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#brands">KITCO Snacks &amp; Chips</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#brands">Hero Swiss Preserves</a></li>
+</ul>
+<div class="border-t border-outline-variant/30 pt-3">
+<a class="inline-flex items-center gap-1.5 text-xs font-semibold text-primary transition-colors group" href="https://maps.google.com/?q=Ramallah+Palestine" rel="noopener noreferrer" target="_blank">
+<svg class="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">Find Us on Maps</span>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-on-surface-variant">
+<p class="">© 2026 Al Amin Pal Food Import &amp; Distribution. All rights reserved. West Bank, Palestine.</p>
+<div class="flex items-center gap-3">
+<span class="">Ramallah, Palestine</span>
+<span class="">•</span>
+<span class="">+970 56 282 0023</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- INTERACTIVE SCRIPTS (Brand Tabs Only, Modal Removed) -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.brand-nav-tab');
+    const contents = document.querySelectorAll('.brand-content');
+
+    const activeClasses = ['bg-surface-container-high', 'text-on-surface', 'border-surface-container-high', 'active-tab'];
+    const inactiveClasses = ['bg-surface-container-lowest', 'text-on-surface', 'border-outline-variant/60'];
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetBrand = tab.getAttribute('data-brand-tab');
+
+        tabs.forEach(t => {
+          t.classList.remove(...activeClasses);
+          t.classList.add(...inactiveClasses);
+          const dot = t.querySelector('.w-2.h-2');
+          if (dot) dot.remove();
+        });
+
+        tab.classList.remove(...inactiveClasses);
+        tab.classList.add(...activeClasses);
+
+        if (!tab.querySelector('.w-2.h-2')) {
+          const dot = document.createElement('span');
+          dot.className = 'w-2 h-2 rounded-full bg-secondary';
+          tab.appendChild(dot);
+        }
+
+        contents.forEach(content => {
+          if (content.id === `brand-content-${targetBrand}`) {
+            content.classList.remove('hidden');
+            content.classList.add('active');
+          } else {
+            content.classList.remove('active');
+            content.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+
+</body></html>
