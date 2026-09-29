@@ -56,14 +56,6 @@
       opacity: 1;
       transform: none;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .anim-fadeup, .hero-zoom, .reveal {
-        animation: none !important;
-        transition: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-      }
-    }
   </style>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -626,7 +618,7 @@
 <!-- SCROLL REVEAL ANIMATIONS -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
 
     const groups = [
       '#about .lg\\:col-span-7, #about .lg\\:col-span-5',
