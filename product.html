@@ -57,52 +57,37 @@
 </head>
 <body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-white w-full min-h-screen overflow-x-hidden flex flex-col">
 <!-- TOP NAV HEADER -->
-<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high/80 shadow-sm w-full">
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high/80 shadow-sm transition-all w-full">
 <div class="max-w-7xl mx-auto px-6 lg:px-12 h-32 sm:h-40 flex items-center justify-between">
 <a class="flex items-center group" href="index.html">
 <img alt="Al Amin Pal Logo" class="h-[7.5rem] sm:h-[9rem] w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQOxQNUgmMOQ7predbSNcsVd0Nr27eU64SmF39ySWWaJa6wPOGINkW-I-PKhROYtDMUsx8I44YD2YuBb0PH8uQ98IzGDlopGK4hI4Xx0aYD6Dmk165FvwSxH39C4rbEsglyZMCEvxdo4Sb9Hxt57RCfJF85_f4tqjXPZQGrOE6J85uMdWrbREMCKhbKfKCJyT26cM3AZ94lVF9mS2rUdalLi58FEe9dc1Vu0_HqWtGZUKY0YsY8TW-5z0gBYbVol0O784">
 </a>
-<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-surface-container-high bg-surface-container-lowest hover:bg-surface-container text-xs sm:text-sm font-bold text-primary transition-all shadow-sm" href="index.html#brands">
-<span class="material-symbols-outlined text-[18px]">arrow_back</span>
-<span>Back to Brands</span>
+<nav class="hidden md:flex items-center gap-9 font-semibold text-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors py-1" href="index.html">Home</a>
+<a class="hover:text-primary transition-colors py-1" href="index.html#about">About Us</a>
+<a class="hover:text-primary transition-colors py-1" href="index.html#what-we-do">What We Do</a>
+<a class="hover:text-primary transition-colors py-1" href="index.html#brands">Our Brands</a>
+<a class="hover:text-primary transition-colors py-1" href="index.html#contact">Contact Us</a>
+</nav>
+<div class="flex items-center gap-3">
+<a class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-primary-container/40 bg-primary-fixed text-primary text-xs sm:text-sm font-bold hover:bg-primary-container hover:text-white transition-all shadow-sm" href="index.html#brands">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+<span class="">Explore Our Brands</span>
 </a>
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-secondary text-white text-xs sm:text-sm font-bold hover:bg-tertiary transition-all shadow-sm" href="https://wa.me/970562820023" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span class="">Let’s Connect</span>
+</a>
+<a aria-label="Sign In" class="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-surface-container-high bg-surface-container-lowest text-on-surface-variant hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm" href="login.html" title="Sign In">
+<span class="material-symbols-outlined text-[22px]">person</span>
+</a>
+</div>
 </div>
 </header>
 <main class="w-full flex-1 flex flex-col overflow-x-hidden">
-<!-- CATEGORY HERO -->
-<section class="w-full bg-surface-container-low border-b border-surface-container-high">
-<div class="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16">
-<nav class="flex items-center gap-2 text-xs font-semibold text-on-surface-variant mb-6" id="breadcrumb"></nav>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-<div class="lg:col-span-5 order-2 lg:order-1 space-y-5">
-<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-fixed text-primary font-bold text-xs uppercase tracking-wider" id="brand-chip">Brand</div>
-<h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface tracking-tight leading-tight" id="cat-title">Category</h1>
-<p class="text-sm sm:text-base text-on-surface-variant leading-relaxed" id="cat-tagline">Tagline</p>
-<div class="pt-2 flex flex-wrap items-center gap-3">
-<a class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-white font-bold text-sm hover:bg-tertiary transition-all shadow-sm" id="cat-wa" href="https://wa.me/970562820023" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[18px]">chat</span>
-<span>Inquire About This Range</span>
-</a>
-</div>
-</div>
-<div class="lg:col-span-7 order-1 lg:order-2">
-<div class="relative rounded-3xl overflow-hidden bg-white border border-surface-container-high shadow-xl aspect-[16/10] flex items-center justify-center p-8">
-<img alt="" class="max-h-full w-auto object-contain" id="cat-hero-img" src="">
-</div>
-</div>
-</div>
-</div>
-</section>
 <!-- PRODUCTS GRID -->
-<section class="w-full py-14 lg:py-20 bg-surface">
+<section class="w-full py-12 lg:py-16 bg-surface">
 <div class="max-w-7xl mx-auto px-6 lg:px-12">
-<div class="flex items-end justify-between mb-10 gap-4 flex-wrap">
-<div class="space-y-2">
-<h2 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight" id="products-heading">Products in this range</h2>
-<p class="text-sm text-on-surface-variant" id="products-sub">Explore the available options below.</p>
-</div>
-<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold" id="products-count">0 items</span>
-</div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid"></div>
 </div>
 </section>
@@ -264,53 +249,24 @@
     const grid = document.getElementById("products-grid");
 
     if(!cat){
-      document.getElementById("brand-chip").textContent = "Not found";
-      document.getElementById("cat-title").textContent = "Category not found";
-      document.getElementById("cat-tagline").textContent = "The category you are looking for is not available. Please go back and choose a product.";
-      document.getElementById("breadcrumb").innerHTML = '<a class="hover:text-primary" href="index.html">Home</a><span>/</span><a class="hover:text-primary" href="index.html#brands">Our Brands</a>';
-      document.getElementById("products-heading").textContent = "";
-      document.getElementById("products-sub").textContent = "";
-      document.getElementById("products-count").style.display = "none";
+      grid.innerHTML = '<div class="col-span-full text-center py-16 space-y-3">' +
+        '<h2 class="text-2xl font-extrabold text-on-surface">Category not found</h2>' +
+        '<p class="text-sm text-on-surface-variant">The category you are looking for is not available.</p>' +
+        '<a class="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-xl bg-primary-container text-white font-bold text-sm hover:bg-primary transition-all" href="index.html#brands">Back to Our Brands</a>' +
+        '</div>';
       return;
     }
 
     document.title = cat.title + " - " + cat.brand + " | Al Amin Pal";
-    document.getElementById("brand-chip").textContent = cat.brand;
-    document.getElementById("cat-title").textContent = cat.title;
-    document.getElementById("cat-tagline").textContent = cat.tagline;
-    document.getElementById("cat-hero-img").src = cat.img;
-    document.getElementById("cat-hero-img").alt = cat.title;
-    document.getElementById("cat-wa").href = WA + encodeURIComponent(cat.brand + " " + cat.title);
-    document.getElementById("products-heading").textContent = cat.title + " range";
-    document.getElementById("products-sub").textContent = "Available options in the " + cat.title + " range from " + cat.brand + ".";
-    document.getElementById("products-count").textContent = cat.products.length + (cat.products.length === 1 ? " item" : " items");
-
-    document.getElementById("breadcrumb").innerHTML =
-      '<a class="hover:text-primary" href="index.html">Home</a>' +
-      '<span class="material-symbols-outlined text-[14px]">chevron_right</span>' +
-      '<a class="hover:text-primary" href="index.html#brands">Our Brands</a>' +
-      '<span class="material-symbols-outlined text-[14px]">chevron_right</span>' +
-      '<span class="text-on-surface">' + cat.brand + '</span>' +
-      '<span class="material-symbols-outlined text-[14px]">chevron_right</span>' +
-      '<span class="text-primary font-bold">' + cat.title + '</span>';
 
     grid.innerHTML = cat.products.map(pr => `
-      <div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between p-3">
+      <div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col p-3">
         <div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[220px] overflow-hidden">
           <img alt="${pr.name}" class="max-h-48 w-auto object-contain group-hover:scale-105 transition-transform duration-300" src="${pr.img}">
         </div>
-        <div class="pt-4 pb-2 px-3 flex flex-col items-center text-center flex-1 justify-between">
-          <div class="space-y-1 w-full">
-            <span class="text-[11px] font-bold text-primary tracking-wider uppercase block">${pr.code}</span>
-            <h4 class="text-base font-bold text-on-surface tracking-tight">${pr.name}</h4>
-            <p class="text-xs text-on-surface-variant font-medium">${pr.desc}</p>
-            <p class="text-xs font-semibold text-slate-500 pt-1">${pr.size}</p>
-          </div>
-          <a class="w-full py-2.5 px-4 mt-4 rounded-xl bg-surface-container-low hover:bg-on-surface text-on-surface hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 border border-surface-container-high hover:border-on-surface"
-             href="${WA + encodeURIComponent(cat.brand + ' ' + pr.name)}" rel="noopener noreferrer" target="_blank">
-            <span>Inquire Now</span>
-            <span class="material-symbols-outlined text-[16px]">chat</span>
-          </a>
+        <div class="pt-4 pb-3 px-3 flex flex-col items-center text-center space-y-1.5">
+          <h4 class="text-base font-bold text-on-surface tracking-tight">${pr.name}</h4>
+          <p class="text-xs text-on-surface-variant font-medium leading-relaxed">${pr.desc}</p>
         </div>
       </div>`).join("");
   }
