@@ -236,9 +236,10 @@
 <script>
   const CATALOG_BRAND = { arizona: "Arizona", wefaq: "Al Wefaq", kitco: "KITCO", hero: "Hero" };
 
-  function cat(id, brandKey, title, count){
+  function cat(id, brandKey, title, count, ext){
+    ext = ext || "jpeg";
     const products = [];
-    for (let i = 1; i <= count; i++) products.push({ name: title, img: `brands/${id}/p${i}.jpeg` });
+    for (let i = 1; i <= count; i++) products.push({ name: title, img: `brands/${id}/p${i}.${ext}` });
     return { brand: CATALOG_BRAND[brandKey], title: title, products: products };
   }
 
@@ -247,7 +248,7 @@
     "arizona-1": cat("arizona-1", "arizona", "معجون طماطم ١٣٠غم", 2),
     "arizona-2": cat("arizona-2", "arizona", "شراب بالجلي ١٢٠مل", 1),
     // ===== AL WEFAQ =====
-    "wefaq-1": cat("wefaq-1", "wefaq", "جامي بورغات علب ١٦٠غم", 10),
+    "wefaq-1": cat("wefaq-1", "wefaq", "جامي بورغات علب ١٦٠غم", 10, "png"),
     "wefaq-2": cat("wefaq-2", "wefaq", "مصاص بورغات أشكال ٤٠ حبة", 5),
     "wefaq-3": cat("wefaq-3", "wefaq", "مصاص بورغات أشكال ٩ حبة", 4),
     "wefaq-4": cat("wefaq-4", "wefaq", "جامي بورغات ٨٠غم", 8),
