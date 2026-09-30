@@ -100,9 +100,14 @@
 <body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-white w-full min-h-screen overflow-x-hidden">
 <!-- TOP NAV HEADER -->
 <header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high/80 shadow-sm transition-all w-full">
-<div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
-<a class="flex items-center group" href="#">
-<img alt="Al Amin Pal Logo" class="h-16 sm:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQOxQNUgmMOQ7predbSNcsVd0Nr27eU64SmF39ySWWaJa6wPOGINkW-I-PKhROYtDMUsx8I44YD2YuBb0PH8uQ98IzGDlopGK4hI4Xx0aYD6Dmk165FvwSxH39C4rbEsglyZMCEvxdo4Sb9Hxt57RCfJF85_f4tqjXPZQGrOE6J85uMdWrbREMCKhbKfKCJyT26cM3AZ94lVF9mS2rUdalLi58FEe9dc1Vu0_HqWtGZUKY0YsY8TW-5z0gBYbVol0O784">
+<div class="relative max-w-7xl mx-auto px-6 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
+<!-- Mobile hamburger -->
+<button aria-label="Open menu" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-on-surface hover:bg-surface-container transition-colors" id="menu-btn" type="button">
+<span class="material-symbols-outlined text-[28px]" id="menu-icon">menu</span>
+</button>
+<!-- Logo (centered on mobile, left on desktop) -->
+<a class="group absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex items-center" href="#">
+<img alt="Al Amin Pal Logo" class="h-14 sm:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQOxQNUgmMOQ7predbSNcsVd0Nr27eU64SmF39ySWWaJa6wPOGINkW-I-PKhROYtDMUsx8I44YD2YuBb0PH8uQ98IzGDlopGK4hI4Xx0aYD6Dmk165FvwSxH39C4rbEsglyZMCEvxdo4Sb9Hxt57RCfJF85_f4tqjXPZQGrOE6J85uMdWrbREMCKhbKfKCJyT26cM3AZ94lVF9mS2rUdalLi58FEe9dc1Vu0_HqWtGZUKY0YsY8TW-5z0gBYbVol0O784">
 </a>
 <nav class="hidden md:flex items-center gap-8 lg:gap-10 font-semibold text-sm text-on-surface-variant">
 <a class="relative py-1 hover:text-primary transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:rounded-full after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="#">Home</a>
@@ -111,8 +116,8 @@
 <a class="relative py-1 hover:text-primary transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:rounded-full after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="#brands">Our Brands</a>
 <a class="relative py-1 hover:text-primary transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:rounded-full after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="#contact">Contact Us</a>
 </nav>
-<div class="flex items-center gap-3">
-<a class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-primary-container/40 bg-primary-fixed text-primary text-xs sm:text-sm font-bold hover:bg-primary-container hover:text-white transition-all shadow-sm" href="#brands">
+<div class="hidden md:flex items-center gap-3">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-primary-container/40 bg-primary-fixed text-primary text-xs sm:text-sm font-bold hover:bg-primary-container hover:text-white transition-all shadow-sm" href="#brands">
 <span class="material-symbols-outlined text-[18px]">storefront</span>
 <span class="">Explore Our Brands</span>
 </a>
@@ -124,8 +129,37 @@
 <span class="material-symbols-outlined text-[22px]">person</span>
 </a>
 </div>
+<!-- Spacer to balance hamburger and keep logo centered on mobile -->
+<span class="md:hidden w-10"></span>
+</div>
+<!-- Mobile dropdown menu -->
+<div class="hidden md:hidden border-t border-surface-container-high bg-surface-container-lowest shadow-lg" id="mobile-menu">
+<nav class="flex flex-col px-6 py-2 font-semibold text-sm text-on-surface">
+<a class="py-3 border-b border-surface-container-high/60 hover:text-primary transition-colors" href="#">Home</a>
+<a class="py-3 border-b border-surface-container-high/60 hover:text-primary transition-colors" href="#about">About Us</a>
+<a class="py-3 border-b border-surface-container-high/60 hover:text-primary transition-colors" href="#what-we-do">What We Do</a>
+<a class="py-3 border-b border-surface-container-high/60 hover:text-primary transition-colors" href="#brands">Our Brands</a>
+<a class="py-3 hover:text-primary transition-colors" href="#contact">Contact Us</a>
+</nav>
 </div>
 </header>
+<script>
+  (function(){
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const isHidden = menu.classList.toggle('hidden');
+        if (icon) icon.textContent = isHidden ? 'menu' : 'close';
+      });
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        if (icon) icon.textContent = 'menu';
+      }));
+    }
+  })();
+</script>
 <main class="w-full flex flex-col overflow-x-hidden">
 <!-- SECTION 1: HERO -->
 <section class="w-full relative overflow-hidden bg-inverse-surface min-h-[580px] lg:min-h-[640px] flex items-center">
@@ -485,7 +519,7 @@
 <!-- FOOTER -->
 <footer class="w-full bg-surface-container-low border-t border-surface-container-high pt-16 pb-10">
 <div class="max-w-7xl mx-auto px-6 lg:px-12">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[3fr_3fr_4fr] gap-10 lg:gap-12 mb-12 items-center">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[3fr_3fr_4fr] gap-10 lg:gap-12 mb-12 items-center text-center md:text-left justify-items-center md:justify-items-start">
 <div class="space-y-4">
 <a class="inline-block" href="#">
 <img alt="Al Amin Pal Food Import &amp; Distribution" class="h-[7.5rem] sm:h-[9rem] w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-2foUVjNq8wmm7KT7FXtbkSlnYltUgd4laUiPNRYSkvDHABWhIlVKYqNfKLBSZdxFnnfP9DVQpaGJi2WbiVJD-xFekYgNZ3SEIUAyLmwLdl0X8paVFfKljouKUhiuvtietNj0KgsOmtQSg0u8UPxLWUkC882CO-oPt-0LwGlyH9mp2sQd0fD9FdhtLWVvzpAzEnUnS7t7u7RAHBgFm8eeY7SzMu9uwx6W3SQSeDOr1t6LKKcjAzOBv1TLXIrkA52LluoMtqq_l9u97GM">
@@ -500,22 +534,22 @@
 <div class="space-y-3">
 <h4 class="text-sm font-bold text-on-surface">Contact &amp; Location</h4>
 <ul class="space-y-2.5 text-xs text-on-surface-variant">
-<li class="flex items-center gap-2">
+<li class="flex items-center justify-center md:justify-start gap-2">
 <span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
 <span class="">Ramallah, Palestine</span>
 </li>
-<li class="flex items-center gap-2">
+<li class="flex items-center justify-center md:justify-start gap-2">
 <span class="material-symbols-outlined text-[16px] text-secondary">call</span>
 <a class="hover:text-primary font-bold text-on-surface transition-colors" dir="ltr" href="tel:+970562820023">+970 56 282 0023</a>
 </li>
-<li class="flex items-center gap-2">
+<li class="flex items-center justify-center md:justify-start gap-2">
 <span class="material-symbols-outlined text-[16px] text-primary">mail</span>
 <span class="">info@alaminpal.ps</span>
 </li>
 </ul>
 <div class="pt-2 space-y-2">
 <span class="text-[11px] font-bold text-on-surface block uppercase tracking-wider">Social Channels:</span>
-<div class="flex items-center gap-2.5">
+<div class="flex items-center justify-center md:justify-start gap-2.5">
 <a aria-label="Facebook Page" class="w-8 h-8 rounded-lg bg-surface-container-lowest border border-surface-container-high hover:bg-primary hover:text-white text-on-surface-variant flex items-center justify-center transition-all shadow-sm" href="https://www.facebook.com/alaminpalco/" rel="noopener noreferrer" target="_blank">
 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
 </a>
