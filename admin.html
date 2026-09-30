@@ -1,0 +1,344 @@
+<!DOCTYPE html><html class="w-full min-h-screen overflow-x-hidden" dir="ltr" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Admin Dashboard - Al Amin Pal</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin:0; padding:0; width:100%; min-height:100vh; font-family:'Plus Jakarta Sans','Inter',sans-serif; }
+    .view { display:none; }
+    .view.active { display:block; }
+    .tab-btn.active { background:#840010; color:#fff; }
+    ::-webkit-scrollbar{width:8px;height:8px}
+    ::-webkit-scrollbar-thumb{background:#c4cbd8;border-radius:0}
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = { darkMode:"class", theme:{ extend:{ colors:{
+      "primary":"#840010","primary-container":"#a81d22","on-primary":"#ffffff","primary-fixed":"#ffdad7",
+      "secondary":"#236141","secondary-container":"#aef768","secondary-fixed":"#b0f1c7","on-secondary-fixed-variant":"#0f5132",
+      "tertiary":"#02492b","surface":"#f7f9ff","surface-dim":"#d5dae4","surface-container-lowest":"#ffffff",
+      "surface-container-low":"#f0f4fc","surface-container":"#e8eef8","surface-container-high":"#e0e6f2","surface-container-highest":"#d8dfea",
+      "on-surface":"#161c23","on-surface-variant":"#545f71","outline":"#757f8f","outline-variant":"#c4cbd8","inverse-surface":"#1e242c"
+    }}}}
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased w-full min-h-screen">
+<div class="flex min-h-screen w-full">
+<!-- SIDEBAR -->
+<aside class="fixed lg:static inset-y-0 left-0 z-40 w-64 shrink-0 bg-inverse-surface text-white flex flex-col -translate-x-full lg:translate-x-0 transition-transform duration-300" id="sidebar">
+<div class="h-20 flex items-center gap-3 px-6 border-b border-white/10">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center font-extrabold">AP</div>
+<div class="leading-tight">
+<p class="font-extrabold text-sm">Al Amin Pal</p>
+<p class="text-[11px] text-white/60">Admin Panel</p>
+</div>
+</div>
+<nav class="flex-1 px-3 py-5 space-y-1 text-sm font-semibold">
+<button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 transition-colors" data-view="overview" type="button">
+<span class="material-symbols-outlined text-[20px]">dashboard</span><span>Overview</span>
+</button>
+<button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" data-view="brands" type="button">
+<span class="material-symbols-outlined text-[20px]">sell</span><span>Brands</span>
+</button>
+<button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" data-view="categories" type="button">
+<span class="material-symbols-outlined text-[20px]">category</span><span>Categories</span>
+</button>
+<button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" data-view="products" type="button">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span><span>Products</span>
+</button>
+</nav>
+<div class="px-3 py-5 border-t border-white/10">
+<a class="w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-sm font-semibold" href="index.html">
+<span class="material-symbols-outlined text-[20px]">logout</span><span>Log out</span>
+</a>
+</div>
+</aside>
+<div class="fixed inset-0 bg-black/40 z-30 hidden lg:hidden" id="overlay"></div>
+
+<!-- MAIN -->
+<div class="flex-1 min-w-0 flex flex-col">
+<!-- TOP BAR -->
+<header class="h-20 shrink-0 bg-surface-container-lowest border-b border-surface-container-high flex items-center justify-between px-4 sm:px-8 sticky top-0 z-20">
+<div class="flex items-center gap-3">
+<button aria-label="Menu" class="lg:hidden w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center" id="menu-btn" type="button">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-lg sm:text-xl font-extrabold tracking-tight" id="page-title">Overview</h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-2 h-10 px-3 rounded-xl bg-surface-container-low border border-surface-container-high">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">search</span>
+<input class="bg-transparent border-0 outline-none text-sm w-40 placeholder:text-on-surface-variant p-0 focus:ring-0" placeholder="Search…" type="text">
+</div>
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">A</div>
+<div class="hidden sm:block leading-tight">
+<p class="text-xs font-bold">Admin</p>
+<p class="text-[11px] text-on-surface-variant">Administrator</p>
+</div>
+</div>
+</div>
+</header>
+
+<main class="flex-1 p-4 sm:p-8 space-y-8">
+<!-- ===== OVERVIEW ===== -->
+<section class="view active" id="view-overview">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+<div class="p-5 rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-sm">
+<div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Brands</span><span class="material-symbols-outlined text-primary">sell</span></div>
+<p class="text-3xl font-extrabold mt-2">4</p>
+</div>
+<div class="p-5 rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-sm">
+<div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Categories</span><span class="material-symbols-outlined text-secondary">category</span></div>
+<p class="text-3xl font-extrabold mt-2">14</p>
+</div>
+<div class="p-5 rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-sm">
+<div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Products</span><span class="material-symbols-outlined text-primary">inventory_2</span></div>
+<p class="text-3xl font-extrabold mt-2">77</p>
+</div>
+<div class="p-5 rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-sm">
+<div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Inquiries</span><span class="material-symbols-outlined text-secondary">forum</span></div>
+<p class="text-3xl font-extrabold mt-2">—</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-5">
+<div class="lg:col-span-1 p-6 rounded-2xl bg-inverse-surface text-white shadow-sm flex flex-col justify-between">
+<div>
+<h3 class="font-extrabold text-lg">Quick Actions</h3>
+<p class="text-sm text-white/70 mt-1">Manage your catalog quickly.</p>
+</div>
+<div class="mt-5 space-y-2">
+<button class="w-full flex items-center gap-2 px-4 py-3 rounded-xl bg-primary-container hover:bg-primary transition-colors text-sm font-bold" onclick="openForm('brand','add')" type="button"><span class="material-symbols-outlined text-[18px]">add</span> New Brand</button>
+<button class="w-full flex items-center gap-2 px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors text-sm font-bold" onclick="openForm('category','add')" type="button"><span class="material-symbols-outlined text-[18px]">add</span> New Category</button>
+<button class="w-full flex items-center gap-2 px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors text-sm font-bold" onclick="openForm('product','add')" type="button"><span class="material-symbols-outlined text-[18px]">add</span> New Product</button>
+</div>
+</div>
+<div class="lg:col-span-3 p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-sm">
+<h3 class="font-extrabold text-lg mb-4">Brands Overview</h3>
+<div class="space-y-3" id="overview-brands"></div>
+</div>
+</div>
+</section>
+
+<!-- ===== BRANDS ===== -->
+<section class="view" id="view-brands">
+<div class="flex items-center justify-between gap-3 mb-5 flex-wrap">
+<p class="text-sm text-on-surface-variant">Manage the main brands shown in the "Our Brands" section.</p>
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-container text-white font-bold text-sm hover:bg-primary transition-colors shadow-sm" onclick="openForm('brand','add')" type="button"><span class="material-symbols-outlined text-[18px]">add</span> Add Brand</button>
+</div>
+<div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left min-w-[560px]">
+<thead class="bg-surface-container text-on-surface-variant text-xs uppercase tracking-wider">
+<tr><th class="px-5 py-3 font-bold">Brand</th><th class="px-5 py-3 font-bold">Categories</th><th class="px-5 py-3 font-bold">Status</th><th class="px-5 py-3 font-bold text-right">Actions</th></tr>
+</thead>
+<tbody id="tbl-brands" class="divide-y divide-surface-container-high"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="view" id="view-categories">
+<div class="flex items-center justify-between gap-3 mb-5 flex-wrap">
+<p class="text-sm text-on-surface-variant">Manage categories (inner sections) under each brand.</p>
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-container text-white font-bold text-sm hover:bg-primary transition-colors shadow-sm" onclick="openForm('category','add')" type="button"><span class="material-symbols-outlined text-[18px]">add</span> Add Category</button>
+</div>
+<div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left min-w-[640px]">
+<thead class="bg-surface-container text-on-surface-variant text-xs uppercase tracking-wider">
+<tr><th class="px-5 py-3 font-bold">Category</th><th class="px-5 py-3 font-bold">Brand</th><th class="px-5 py-3 font-bold">Products</th><th class="px-5 py-3 font-bold text-right">Actions</th></tr>
+</thead>
+<tbody id="tbl-categories" class="divide-y divide-surface-container-high"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="view" id="view-products">
+<div class="flex items-center justify-between gap-3 mb-5 flex-wrap">
+<p class="text-sm text-on-surface-variant">Manage the products (inner items) inside each category.</p>
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-container text-white font-bold text-sm hover:bg-primary transition-colors shadow-sm" onclick="openForm('product','add')" type="button"><span class="material-symbols-outlined text-[18px]">add</span> Add Product</button>
+</div>
+<div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left min-w-[720px]">
+<thead class="bg-surface-container text-on-surface-variant text-xs uppercase tracking-wider">
+<tr><th class="px-5 py-3 font-bold">Product</th><th class="px-5 py-3 font-bold">Category</th><th class="px-5 py-3 font-bold">Brand</th><th class="px-5 py-3 font-bold text-right">Actions</th></tr>
+</thead>
+<tbody id="tbl-products" class="divide-y divide-surface-container-high"></tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+
+<!-- ===== FORM MODAL ===== -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm" id="form-modal">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-2xl shadow-2xl border border-surface-container-high max-h-[90vh] overflow-y-auto">
+<div class="flex items-center justify-between px-6 py-4 border-b border-surface-container-high sticky top-0 bg-surface-container-lowest">
+<h3 class="font-extrabold text-lg" id="form-title">Add</h3>
+<button class="w-9 h-9 rounded-lg hover:bg-surface-container flex items-center justify-center" onclick="closeForm()" type="button"><span class="material-symbols-outlined">close</span></button>
+</div>
+<form class="p-6 space-y-4" onsubmit="event.preventDefault(); closeForm();">
+<div class="space-y-1.5">
+<label class="text-xs font-bold">Name *</label>
+<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-sm focus:outline-none focus:ring-2 focus:ring-primary-container" id="f-name" placeholder="Enter name" required="" type="text">
+</div>
+<div class="space-y-1.5" data-group="brand-select">
+<label class="text-xs font-bold" id="f-parent-label">Brand *</label>
+<select class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-sm focus:outline-none focus:ring-2 focus:ring-primary-container" id="f-parent">
+<option value="arizona">Arizona</option>
+<option value="wefaq">Al Wefaq</option>
+<option value="kitco">KITCO</option>
+<option value="hero">Hero</option>
+</select>
+</div>
+<div class="space-y-1.5" data-group="desc">
+<label class="text-xs font-bold">Short Description</label>
+<textarea class="w-full p-4 rounded-xl bg-surface-container-low border border-surface-container-high text-sm focus:outline-none focus:ring-2 focus:ring-primary-container" id="f-desc" placeholder="Short product description…" rows="2"></textarea>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold" id="f-image-label">Image</label>
+<div class="flex items-center justify-center w-full h-28 rounded-xl border-2 border-dashed border-surface-container-high bg-surface-container-low cursor-pointer hover:border-primary-container transition-colors text-on-surface-variant">
+<div class="text-center">
+<span class="material-symbols-outlined text-[28px]">cloud_upload</span>
+<p class="text-xs">Click to upload or drag &amp; drop</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<input class="h-4 w-4 rounded border-surface-container-high text-primary focus:ring-primary-container" checked="" id="f-active" type="checkbox">
+<label class="text-xs font-medium text-on-surface-variant" for="f-active">Active (visible on the website)</label>
+</div>
+<div class="flex items-center justify-end gap-3 pt-2">
+<button class="px-5 py-2.5 rounded-xl border border-surface-container-high hover:bg-surface-container text-sm font-bold" onclick="closeForm()" type="button">Cancel</button>
+<button class="px-5 py-2.5 rounded-xl bg-primary-container text-white text-sm font-bold hover:bg-primary transition-colors" type="submit">Save</button>
+</div>
+</form>
+</div>
+</div>
+
+<!-- ===== DELETE MODAL ===== -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm" id="delete-modal">
+<div class="w-full max-w-sm bg-surface-container-lowest rounded-2xl shadow-2xl border border-surface-container-high p-6 text-center space-y-4">
+<div class="w-14 h-14 rounded-full bg-primary-fixed text-primary flex items-center justify-center mx-auto"><span class="material-symbols-outlined text-[30px]">delete</span></div>
+<div>
+<h3 class="font-extrabold text-lg">Delete item?</h3>
+<p class="text-sm text-on-surface-variant mt-1" id="delete-text">This action cannot be undone.</p>
+</div>
+<div class="flex items-center justify-center gap-3 pt-1">
+<button class="px-5 py-2.5 rounded-xl border border-surface-container-high hover:bg-surface-container text-sm font-bold" onclick="closeDelete()" type="button">Cancel</button>
+<button class="px-5 py-2.5 rounded-xl bg-primary text-white text-sm font-bold hover:bg-primary-container transition-colors" onclick="closeDelete()" type="button">Delete</button>
+</div>
+</div>
+</div>
+
+<script>
+  // ---- Sample data (design only) ----
+  const BRANDS = [
+    { name:"Arizona", cats:2, status:true },
+    { name:"Al Wefaq", cats:6, status:true },
+    { name:"KITCO", cats:2, status:true },
+    { name:"Hero", cats:4, status:true }
+  ];
+  const CATEGORIES = [
+    { name:"Maya Tomato Paste 130g", brand:"Arizona", products:2 },
+    { name:"Coach Jelly Drink 120ml", brand:"Arizona", products:3 },
+    { name:"Borgat Gummy Tubs 160g", brand:"Al Wefaq", products:10 },
+    { name:"Borgat 3D Lollipops 40 pcs", brand:"Al Wefaq", products:5 },
+    { name:"Borgat 3D Lollipops 9 pcs", brand:"Al Wefaq", products:4 },
+    { name:"Borgat Gummy 80g", brand:"Al Wefaq", products:8 },
+    { name:"Borgat Marshmallows", brand:"Al Wefaq", products:6 },
+    { name:"Dandormah Ice Pops 90ml", brand:"Al Wefaq", products:1 },
+    { name:"Kitco Stix Potato Sticks 40g", brand:"KITCO", products:1 },
+    { name:"Kitco Mexita Tortilla Chips", brand:"KITCO", products:4 },
+    { name:"Vitrac Jam", brand:"Hero", products:5 },
+    { name:"Hero Jam 350g", brand:"Hero", products:9 },
+    { name:"Peanut Butter & Biscuit Spread 300g", brand:"Hero", products:6 },
+    { name:"Vitrac Juices (Carton & Glass)", brand:"Hero", products:13 }
+  ];
+  const PRODUCTS = [
+    { name:"Sour Strawberry", cat:"Borgat Gummy Tubs 160g", brand:"Al Wefaq" },
+    { name:"Cola", cat:"Borgat Gummy Tubs 160g", brand:"Al Wefaq" },
+    { name:"Bumble Bear", cat:"Borgat Gummy Tubs 160g", brand:"Al Wefaq" },
+    { name:"Nacho Cheese", cat:"Kitco Mexita Tortilla Chips", brand:"KITCO" },
+    { name:"Peanut Butter – Crunchy", cat:"Peanut Butter & Biscuit Spread 300g", brand:"Hero" },
+    { name:"Mango Nectar", cat:"Vitrac Juices (Carton & Glass)", brand:"Hero" },
+    { name:"Maya Tomato Paste", cat:"Maya Tomato Paste 130g", brand:"Arizona" }
+  ];
+
+  const actionBtns = () =>
+    '<div class="flex items-center justify-end gap-1.5">' +
+    '<button class="w-8 h-8 rounded-lg hover:bg-secondary-fixed text-secondary flex items-center justify-center transition-colors" title="Edit" onclick="openForm(currentType,\'edit\')"><span class="material-symbols-outlined text-[18px]">edit</span></button>' +
+    '<button class="w-8 h-8 rounded-lg hover:bg-primary-fixed text-primary flex items-center justify-center transition-colors" title="Delete" onclick="openDelete()"><span class="material-symbols-outlined text-[18px]">delete</span></button>' +
+    '</div>';
+
+  const badge = (ok) => ok
+    ? '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold">Active</span>'
+    : '<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-bold">Hidden</span>';
+
+  function renderTables(){
+    document.getElementById("tbl-brands").innerHTML = BRANDS.map(b =>
+      `<tr class="hover:bg-surface-container-low"><td class="px-5 py-3 font-bold">${b.name}</td><td class="px-5 py-3">${b.cats}</td><td class="px-5 py-3">${badge(b.status)}</td><td class="px-5 py-3">${actionBtns()}</td></tr>`).join("");
+    document.getElementById("tbl-categories").innerHTML = CATEGORIES.map(c =>
+      `<tr class="hover:bg-surface-container-low"><td class="px-5 py-3 font-bold">${c.name}</td><td class="px-5 py-3">${c.brand}</td><td class="px-5 py-3">${c.products}</td><td class="px-5 py-3">${actionBtns()}</td></tr>`).join("");
+    document.getElementById("tbl-products").innerHTML = PRODUCTS.map(p =>
+      `<tr class="hover:bg-surface-container-low"><td class="px-5 py-3 font-bold">${p.name}</td><td class="px-5 py-3">${p.cat}</td><td class="px-5 py-3">${p.brand}</td><td class="px-5 py-3">${actionBtns()}</td></tr>`).join("");
+    document.getElementById("overview-brands").innerHTML = BRANDS.map(b =>
+      `<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-surface-container-high"><span class="font-bold text-sm">${b.name}</span><span class="text-xs text-on-surface-variant">${b.cats} categories</span></div>`).join("");
+  }
+
+  // ---- Navigation ----
+  let currentType = "brand";
+  const titles = { overview:"Overview", brands:"Brands", categories:"Categories", products:"Products" };
+  function showView(v){
+    document.querySelectorAll(".view").forEach(s => s.classList.remove("active"));
+    document.getElementById("view-" + v).classList.add("active");
+    document.getElementById("page-title").textContent = titles[v];
+    document.querySelectorAll(".nav-btn").forEach(b => b.classList.toggle("bg-white/10", b.dataset.view === v));
+    if (v === "brands") currentType = "brand";
+    else if (v === "categories") currentType = "category";
+    else if (v === "products") currentType = "product";
+    closeSidebar();
+  }
+  document.querySelectorAll(".nav-btn").forEach(b => b.addEventListener("click", () => showView(b.dataset.view)));
+
+  // ---- Form modal ----
+  function openForm(type, mode){
+    currentType = type;
+    const label = { brand:"Brand", category:"Category", product:"Product" }[type];
+    document.getElementById("form-title").textContent = (mode === "edit" ? "Edit " : "Add ") + label;
+    // toggle field groups by type
+    const parentGroup = document.querySelector('[data-group="brand-select"]');
+    const descGroup = document.querySelector('[data-group="desc"]');
+    const parentLabel = document.getElementById("f-parent-label");
+    const imgLabel = document.getElementById("f-image-label");
+    if (type === "brand") { parentGroup.style.display = "none"; descGroup.style.display = "none"; imgLabel.textContent = "Brand Logo"; }
+    else if (type === "category") { parentGroup.style.display = ""; parentLabel.textContent = "Brand *"; descGroup.style.display = ""; imgLabel.textContent = "Cover Image"; setParent(["Arizona","Al Wefaq","KITCO","Hero"]); }
+    else { parentGroup.style.display = ""; parentLabel.textContent = "Category *"; descGroup.style.display = ""; imgLabel.textContent = "Product Image"; setParent(CATEGORIES.map(c => c.name)); }
+    const m = document.getElementById("form-modal");
+    m.classList.remove("hidden"); m.classList.add("flex");
+  }
+  function setParent(list){ document.getElementById("f-parent").innerHTML = list.map(x => `<option>${x}</option>`).join(""); }
+  function closeForm(){ const m=document.getElementById("form-modal"); m.classList.add("hidden"); m.classList.remove("flex"); }
+  function openDelete(){ const m=document.getElementById("delete-modal"); m.classList.remove("hidden"); m.classList.add("flex"); }
+  function closeDelete(){ const m=document.getElementById("delete-modal"); m.classList.add("hidden"); m.classList.remove("flex"); }
+
+  // ---- Mobile sidebar ----
+  function openSidebar(){ document.getElementById("sidebar").classList.remove("-translate-x-full"); document.getElementById("overlay").classList.remove("hidden"); }
+  function closeSidebar(){ document.getElementById("sidebar").classList.add("-translate-x-full"); document.getElementById("overlay").classList.add("hidden"); }
+  document.getElementById("menu-btn").addEventListener("click", openSidebar);
+  document.getElementById("overlay").addEventListener("click", closeSidebar);
+
+  renderTables();
+</script>
+</body></html>
