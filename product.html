@@ -96,7 +96,7 @@
 <!-- PRODUCTS GRID -->
 <section class="w-full py-12 lg:py-16 bg-surface">
 <div class="max-w-7xl mx-auto px-6 lg:px-12">
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid"></div>
+<div class="flex flex-wrap justify-center gap-6" id="products-grid"></div>
 </div>
 </section>
 <!-- CTA -->
@@ -252,7 +252,7 @@
       '<span class="text-on-surface">' + cat.brand + '</span>';
 
     grid.innerHTML = cat.products.map(pr => `
-      <div class="group bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col p-3">
+      <div class="group w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col p-3">
         <div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[240px] overflow-hidden">
           <img alt="${pr.name}" class="max-h-56 w-auto object-contain group-hover:scale-105 transition-transform duration-300" loading="lazy" src="${pr.img}">
         </div>
