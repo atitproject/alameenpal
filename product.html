@@ -236,32 +236,122 @@
 <script>
   const CATALOG_BRAND = { arizona: "Arizona", wefaq: "Al Wefaq", kitco: "KITCO", hero: "Hero" };
 
-  function cat(id, brandKey, title, count, ext){
+  function cat(id, brandKey, title, items, ext){
     ext = ext || "jpeg";
-    const products = [];
-    for (let i = 1; i <= count; i++) products.push({ name: title, img: `brands/${id}/p${i}.${ext}` });
+    const products = items.map((it, i) => ({ name: it[0], desc: it[1] || "", img: `brands/${id}/p${i + 1}.${ext}` }));
     return { brand: CATALOG_BRAND[brandKey], title: title, products: products };
   }
 
   const CATALOG = {
     // ===== ARIZONA =====
-    "arizona-1": cat("arizona-1", "arizona", "معجون طماطم ١٣٠غم", 2),
-    "arizona-2": cat("arizona-2", "arizona", "شراب بالجلي ١٢٠مل", 3, "png"),
+    "arizona-1": cat("arizona-1", "arizona", "Maya Tomato Paste 130g", [
+      ["Maya Tomato Paste", "100% natural tomato paste in a handy squeeze bottle, 130g."],
+      ["Maya Tomato Paste – Multipack", "Value multipack of Maya tomato paste for everyday cooking."]
+    ]),
+    "arizona-2": cat("arizona-2", "arizona", "Coach Jelly Drink 120ml", [
+      ["Strawberry Jelly Drink", "Fruity strawberry-flavoured jelly drink, 120ml."],
+      ["Orange Jelly Drink", "Refreshing orange-flavoured jelly drink, 120ml."],
+      ["Very Berry Jelly Drink", "Sweet mixed-berry jelly drink, 120ml."]
+    ], "png"),
     // ===== AL WEFAQ =====
-    "wefaq-1": cat("wefaq-1", "wefaq", "جامي بورغات علب ١٦٠غم", 10, "png"),
-    "wefaq-2": cat("wefaq-2", "wefaq", "مصاص بورغات أشكال ٤٠ حبة", 5, "png"),
-    "wefaq-3": cat("wefaq-3", "wefaq", "مصاص بورغات أشكال ٩ حبة", 4),
-    "wefaq-4": cat("wefaq-4", "wefaq", "جامي بورغات ٨٠غم", 8, "png"),
-    "wefaq-5": cat("wefaq-5", "wefaq", "مارشملو بورغات ٢٥غم و ١٥٠غم و ٣٠٠غم", 6, "png"),
-    "wefaq-6": cat("wefaq-6", "wefaq", "شراب دندرمه ٩٠مل", 1),
+    "wefaq-1": cat("wefaq-1", "wefaq", "Borgat Gummy Tubs 160g", [
+      ["Sour Strawberry", "Chewy sour strawberry gummies, 160g tub."],
+      ["Cakes", "Colourful celebration-cake shaped gummies, 160g tub."],
+      ["Glow Stix", "Space-themed fruity gummy sticks, 160g tub."],
+      ["Raspberry & Blackberry", "Berry-flavoured gummies, 160g tub."],
+      ["Ringlets", "Fruity gummy rings, 160g tub."],
+      ["Cola", "Classic cola-flavoured gummies, 160g tub."],
+      ["Fruity Wiggles", "Wiggly assorted-fruit gummies, 160g tub."],
+      ["Cars", "Car-shaped fruit gummies, 160g tub."],
+      ["Peach", "Soft peach-flavoured gummies, 160g tub."],
+      ["Bumble Bear", "Fruit-flavoured gummy bears, 160g tub."]
+    ], "png"),
+    "wefaq-2": cat("wefaq-2", "wefaq", "Borgat 3D Lollipops 40 pcs", [
+      ["Fruit Shake", "3D fruit-shake flavoured lollipops, 40 pieces."],
+      ["Marra Cola", "3D cola-flavoured lollipops, 40 pieces."],
+      ["Very Berry", "3D mixed-berry lollipops, 40 pieces."],
+      ["Tongue Paint", "3D lollipops that colour your tongue, 40 pieces."],
+      ["Heart Beats", "3D heart-shaped fruit lollipops, 40 pieces."]
+    ], "png"),
+    "wefaq-3": cat("wefaq-3", "wefaq", "Borgat 3D Lollipops 9 pcs", [
+      ["Tongue Paint", "3D lollipops that colour your tongue, 9 pieces."],
+      ["Fruit Shake", "3D fruit-shake flavoured lollipops, 9 pieces."],
+      ["Heart Beats", "3D heart-shaped fruit lollipops, 9 pieces."],
+      ["Marra Cola", "3D cola-flavoured lollipops, 9 pieces."]
+    ]),
+    "wefaq-4": cat("wefaq-4", "wefaq", "Borgat Gummy 80g", [
+      ["Cars", "Car-shaped fruit gummies, 80g."],
+      ["Party Mix", "Assorted party gummy mix, 80g."],
+      ["Hearts", "Heart-shaped fruit gummies, 80g."],
+      ["Cola", "Cola-flavoured gummies, 80g."],
+      ["Raspberry & Blackberry", "Berry-flavoured gummies, 80g."],
+      ["Cakes", "Celebration-cake shaped gummies, 80g."],
+      ["Bumble Bear", "Fruit-flavoured gummy bears, 80g."],
+      ["Peach", "Soft peach-flavoured gummies, 80g."]
+    ], "png"),
+    "wefaq-5": cat("wefaq-5", "wefaq", "Borgat Marshmallows", [
+      ["Twiddles – Strawberry Blush", "Twisted strawberry-blush marshmallows."],
+      ["Watermelon", "Refreshing watermelon marshmallows."],
+      ["Hearts", "Vanilla white & strawberry heart marshmallows."],
+      ["Classic – Strawberry & Vanilla", "Classic vanilla white & strawberry marshmallows."],
+      ["Classic – Vanilla White", "Classic original vanilla white marshmallows."],
+      ["Mini Puffs & Jumbo Roasters", "Assorted mini puffs and jumbo roaster marshmallows."]
+    ], "png"),
+    "wefaq-6": cat("wefaq-6", "wefaq", "Dandormah Ice Pops 90ml", [
+      ["Dandormah Ice Pops – Fruittier", "Assorted fruit-flavoured freeze pops, 90ml."]
+    ]),
     // ===== KITCO =====
-    "kitco-1": cat("kitco-1", "kitco", "ستكس علب ٤٠غم", 1),
-    "kitco-2": cat("kitco-2", "kitco", "مكسيتا ٤٠غم و ١٨٠غم", 4),
+    "kitco-1": cat("kitco-1", "kitco", "Kitco Stix Potato Sticks 40g", [
+      ["Kitco Stix", "The original crunchy potato sticks in Lightly Salted, Grilled Chicken, Hot & Spicy, Paprika, Tomato Ketchup and Tabasco. 40g cans."]
+    ]),
+    "kitco-2": cat("kitco-2", "kitco", "Kitco Mexita Tortilla Chips", [
+      ["Hot Chilli & Lime", "Corn tortilla chips with a hot chilli & lime kick."],
+      ["Sweet & Sour", "Corn tortilla chips with a sweet & sour flavour."],
+      ["Sweet Chilli Pepper", "Corn tortilla chips with sweet chilli pepper."],
+      ["Nacho Cheese", "Corn tortilla chips with nacho cheese flavour."]
+    ]),
     // ===== HERO =====
-    "hero-1": cat("hero-1", "hero", "مربى فيتراك ٢٤٠غم و ٤٥٠غم و ٨٦٠غم", 5),
-    "hero-2": cat("hero-2", "hero", "مربى هيرو ٣٥٠غم (عادي و لايت)", 9),
-    "hero-3": cat("hero-3", "hero", "زبدة الفستق و زبدة البسكويت ٣٠٠غم", 6),
-    "hero-4": cat("hero-4", "hero", "عصائر فيتراك (كرتون و زجاج)", 13, "png")
+    "hero-1": cat("hero-1", "hero", "Vitrac Jam", [
+      ["Fig Jam", "Vitrac all-natural fig jam."],
+      ["Apricot Jam", "Vitrac all-natural apricot jam."],
+      ["Vitrac Jam Range", "Vitrac fruit jams in apricot, strawberry and fig."],
+      ["Vitrac Jam Trio Pack", "Value pack of Vitrac strawberry, apricot and fig jams."],
+      ["Strawberry Jam", "Vitrac all-natural strawberry jam."]
+    ]),
+    "hero-2": cat("hero-2", "hero", "Hero Jam 350g (Regular & Light)", [
+      ["Red Cherry Jam", "Hero all-natural red cherry jam."],
+      ["Orange Jam", "Hero all-natural orange jam."],
+      ["Blueberry Jam", "Hero all-natural blueberry jam."],
+      ["Black Cherry Jam", "Hero all-natural black cherry jam."],
+      ["Mixed Fruits Jam", "Hero all-natural mixed fruits jam."],
+      ["Apricot Jam", "Hero all-natural apricot jam."],
+      ["Forest Berry Jam", "Hero all-natural forest berry jam."],
+      ["Light Jams (Assorted)", "Hero Light jams with no added sugar: Forest Berry, Black Cherry, Strawberry and Apricot."],
+      ["Strawberry Jam", "Hero all-natural strawberry jam."]
+    ]),
+    "hero-3": cat("hero-3", "hero", "Peanut Butter & Biscuit Spread 300g", [
+      ["Peanut Butter – Crunchy", "Hero Delicia crunchy peanut butter, 300g."],
+      ["Peanut Butter – Creamy", "Hero Delicia creamy peanut butter, 300g."],
+      ["Peanut Butter – No Added Sugar", "Hero Delicia peanut butter with no added sugar, 300g."],
+      ["Choco Biscuit Spread", "Hero Delicia chocolate biscuit spread, 300g."],
+      ["Cinnamon Biscuit Spread", "Hero Delicia cinnamon biscuit spread, 300g."],
+      ["Vanilla Biscuit Crispy Spread", "Hero Delicia vanilla biscuit spread with crispy pieces, 300g."]
+    ]),
+    "hero-4": cat("hero-4", "hero", "Vitrac Juices (Carton & Glass)", [
+      ["Pineapple & Orange Nectar", "Vitrac pineapple & orange nectar – carton."],
+      ["Apple Nectar", "Vitrac apple nectar – carton."],
+      ["Mixed Fruit Nectar", "Vitrac mixed fruit nectar – carton."],
+      ["Orange Nectar", "Vitrac orange nectar – carton."],
+      ["Mango Nectar", "Vitrac mango nectar – carton."],
+      ["Pineapple Nectar", "Vitrac pineapple nectar – carton."],
+      ["Guava Nectar", "Vitrac guava nectar – carton."],
+      ["Strawberry Nectar", "Vitrac strawberry nectar – glass bottle."],
+      ["Orange Nectar", "Vitrac orange nectar – glass bottle."],
+      ["Apple Nectar", "Vitrac apple nectar – glass bottle."],
+      ["Mango Nectar", "Vitrac mango nectar – glass bottle."],
+      ["Guava Nectar", "Vitrac guava nectar – glass bottle."],
+      ["Mixed Fruit Nectar", "Vitrac mixed fruit nectar – glass bottle."]
+    ], "png")
   };
 
   function getParam(name){ return new URLSearchParams(location.search).get(name); }
@@ -281,14 +371,16 @@
     document.title = cat.title + " - " + cat.brand + " | Al Amin Pal";
     document.getElementById("brand-chip").textContent = cat.brand;
     document.getElementById("cat-title").textContent = cat.title;
+    document.getElementById("cat-title").setAttribute("dir", "ltr");
 
     grid.innerHTML = cat.products.map(pr => `
       <div class="group w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl border border-surface-container-high hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col p-3">
         <div class="bg-slate-50/80 rounded-xl p-6 flex items-center justify-center min-h-[240px] overflow-hidden">
           <img alt="${pr.name}" class="max-h-56 w-auto object-contain group-hover:scale-105 transition-transform duration-300" loading="lazy" src="${pr.img}">
         </div>
-        <div class="pt-4 pb-3 px-3 flex flex-col items-center text-center">
-          <h4 class="text-sm font-bold text-on-surface tracking-tight" dir="rtl">${pr.name}</h4>
+        <div class="pt-4 pb-3 px-3 flex flex-col items-center text-center space-y-1.5 flex-1">
+          <h4 class="text-sm font-bold text-on-surface tracking-tight">${pr.name}</h4>
+          <p class="text-xs text-on-surface-variant leading-relaxed">${pr.desc}</p>
         </div>
       </div>`).join("");
   }
