@@ -53,6 +53,9 @@
       }
     }
   </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="app-supabase.js"></script>
 </head>
 <body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-white w-full min-h-screen">
 <main class="w-full min-h-screen grid grid-cols-1 lg:grid-cols-2">
@@ -89,7 +92,7 @@
 <p class="text-sm text-on-surface-variant">Enter your details to access the partner portal.</p>
 </div>
 </div>
-<form class="space-y-5" onsubmit="event.preventDefault(); window.location.href='admin.html';">
+<form class="space-y-5" onsubmit="doLogin(event)">
 <div class="space-y-1.5">
 <label class="text-xs font-bold text-on-surface" for="email">Email Address</label>
 <div class="relative">
@@ -111,9 +114,10 @@
 <input class="h-4 w-4 rounded border-surface-container-high text-primary focus:ring-primary-container" id="remember" type="checkbox">
 <label class="text-xs font-medium text-on-surface-variant" for="remember">Remember me on this device</label>
 </div>
-<button class="w-full py-3.5 rounded-xl bg-primary-container text-white font-bold text-sm hover:bg-primary transition-all shadow-md shadow-primary-container/25 flex items-center justify-center gap-2" type="submit">
+<p class="hidden text-sm text-primary font-bold text-center" id="login-error"></p>
+<button class="w-full py-3.5 rounded-xl bg-primary-container text-white font-bold text-sm hover:bg-primary transition-all shadow-md shadow-primary-container/25 flex items-center justify-center gap-2" id="login-btn" type="submit">
 <span class="material-symbols-outlined text-[18px]">login</span>
-<span>Sign In</span>
+<span id="login-label">Sign In</span>
 </button>
 </form>
 <div class="text-center lg:hidden pt-2">
@@ -125,4 +129,28 @@
 </div>
 </section>
 </main>
+<script>
+  async function doLogin(e){
+    e.preventDefault();
+    const err = document.getElementById("login-error");
+    const btn = document.getElementById("login-btn");
+    const label = document.getElementById("login-label");
+    err.classList.add("hidden");
+    // Demo mode: if Supabase not configured yet, just open the dashboard
+    if(!isConfigured()){ window.location.href = "admin.html"; return; }
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    if(!email || !password){ err.textContent="Please enter your email and password."; err.classList.remove("hidden"); return; }
+    btn.disabled = true; label.textContent = "Signing in…";
+    try{
+      const { error } = await auth.signIn(email, password);
+      if(error) throw error;
+      window.location.href = "admin.html";
+    }catch(ex){
+      err.textContent = "Invalid email or password.";
+      err.classList.remove("hidden");
+      btn.disabled = false; label.textContent = "Sign In";
+    }
+  }
+</script>
 </body></html>
