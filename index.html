@@ -586,8 +586,9 @@
     const tabInactive = "bg-surface-container-lowest text-on-surface border-outline-variant/60";
 
     function tabHTML(brand, i){
+      const sizeCls = (brand.slug === "arizona") ? "h-16 sm:h-[4.5rem]" : "h-12 sm:h-14";
       const logo = brand.logo_url
-        ? `<img alt="${esc(brand.name)} Logo" class="h-10 sm:h-11 w-auto object-contain" src="${esc(brand.logo_url)}">`
+        ? `<img alt="${esc(brand.name)} Logo" class="${sizeCls} w-auto object-contain" src="${esc(brand.logo_url)}">`
         : "";
       return `<button class="brand-nav-tab flex flex-col items-center gap-2 px-7 py-4 transition-all shadow-sm border ${i===0?tabActive:tabInactive}" data-idx="${i}" role="tab" type="button">${logo}<span class="text-xs sm:text-sm font-bold tracking-tight">${esc(brand.name)}</span></button>`;
     }
