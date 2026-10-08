@@ -443,19 +443,31 @@
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div class="space-y-1.5">
-<label class="text-xs font-bold text-on-surface">City (West Bank) *</label>
-<select class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inq-city" required="">
-<option disabled="" selected="" value="">Select City / Governorate</option>
-<option value="ramallah">Ramallah &amp; Al-Bireh</option>
-<option value="nablus">Nablus</option>
-<option value="hebron">Hebron</option>
-<option value="jenin">Jenin</option>
-<option value="tulkarm">Tulkarm</option>
-<option value="bethlehem">Bethlehem</option>
-<option value="qalqilya">Qalqilya</option>
-<option value="jericho">Jericho &amp; Jordan Valley</option>
-<option value="salfit">Salfit</option>
-<option value="tubas">Tubas</option>
+<label class="text-xs font-bold text-on-surface">Country *</label>
+<select class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inq-country" required="">
+<option disabled="" selected="" value="">Select Country</option>
+<option value="palestine">Palestine</option>
+<option value="jordan">Jordan</option>
+<option value="saudi-arabia">Saudi Arabia</option>
+<option value="uae">United Arab Emirates</option>
+<option value="qatar">Qatar</option>
+<option value="kuwait">Kuwait</option>
+<option value="bahrain">Bahrain</option>
+<option value="oman">Oman</option>
+<option value="egypt">Egypt</option>
+<option value="lebanon">Lebanon</option>
+<option value="syria">Syria</option>
+<option value="iraq">Iraq</option>
+<option value="yemen">Yemen</option>
+<option value="libya">Libya</option>
+<option value="tunisia">Tunisia</option>
+<option value="algeria">Algeria</option>
+<option value="morocco">Morocco</option>
+<option value="sudan">Sudan</option>
+<option value="mauritania">Mauritania</option>
+<option value="somalia">Somalia</option>
+<option value="djibouti">Djibouti</option>
+<option value="comoros">Comoros</option>
 </select>
 </div>
 <div class="space-y-1.5">
@@ -638,7 +650,7 @@
     const val = (id) => (document.getElementById(id) ? document.getElementById(id).value.trim() : '');
     const name = val('inq-name');
     const business = val('inq-business');
-    const citySel = document.getElementById('inq-city');
+    const citySel = document.getElementById('inq-country');
     const city = citySel ? (citySel.options[citySel.selectedIndex] ? citySel.options[citySel.selectedIndex].text : '') : '';
     const phone = val('inq-phone');
     const email = val('inq-email');
@@ -649,7 +661,7 @@
     let text = "*New Trade & Wholesale Inquiry - Al Amin Pal*\n\n";
     text += "👤 Name: " + name + "\n";
     text += "🏪 Business: " + business + "\n";
-    text += "📍 City: " + city + "\n";
+    text += "📍 Country: " + city + "\n";
     text += "📞 Phone: " + phone + "\n";
     if (email) text += "✉️ Email: " + email + "\n";
     text += "🏷️ Brand of Interest: " + brand + "\n";
