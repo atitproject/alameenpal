@@ -155,6 +155,11 @@
 <input accept="image/*" class="hidden" id="f-image" type="file" onchange="document.getElementById('f-image-name').textContent = this.files[0] ? this.files[0].name : 'Click to upload image'">
 <img class="hidden mt-2 max-h-24 rounded-lg border border-surface-container-high" id="f-image-current" alt="current">
 </div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold" for="f-sort">Display Order</label>
+<input class="w-full h-11 px-4 rounded-xl bg-surface-container-low border border-surface-container-high text-sm focus:outline-none focus:ring-2 focus:ring-primary-container" id="f-sort" min="1" placeholder="1 = first, 2 = second, …" type="number" value="1">
+<p class="text-[11px] text-on-surface-variant">Lower number appears first (from the left).</p>
+</div>
 <div class="flex items-center gap-2">
 <input class="h-4 w-4 rounded border-surface-container-high text-primary focus:ring-primary-container" checked="" id="f-active" type="checkbox">
 <label class="text-xs font-medium text-on-surface-variant" for="f-active">Active (visible on the website)</label>
@@ -204,15 +209,16 @@
     document.getElementById("stat-prods").textContent = PRODUCTS.length;
     const catCount = (bid) => CATEGORIES.filter(c=>c.brand_id===bid).length;
     const prodCount = (cid) => PRODUCTS.filter(p=>p.category_id===cid).length;
+    const ord = (n) => '<span class="inline-flex items-center justify-center min-w-[1.5rem] h-6 px-1 rounded-md bg-primary-fixed text-primary text-xs font-bold mr-2">'+(n!=null?n:'–')+'</span>';
 
     document.getElementById("tbl-brands").innerHTML = BRANDS.map(b =>
-      `<tr class="hover:bg-surface-container-low"><td class="px-5 py-3 font-bold">${esc(b.name)}</td><td class="px-5 py-3">${catCount(b.id)}</td><td class="px-5 py-3">${badge(b.active)}</td><td class="px-5 py-3">${actions('brand',b.id)}</td></tr>`).join("")
+      `<tr class="hover:bg-surface-container-low"><td class="px-5 py-3 font-bold">${ord(b.sort)}${esc(b.name)}</td><td class="px-5 py-3">${catCount(b.id)}</td><td class="px-5 py-3">${badge(b.active)}</td><td class="px-5 py-3">${actions('brand',b.id)}</td></tr>`).join("")
       || emptyRow(4);
     document.getElementById("tbl-categories").innerHTML = CATEGORIES.map(c =>
-      `<tr class="hover:bg-surface-container-low"><td class="px-5 py-3 font-bold">${esc(c.name)}</td><td class="px-5 py-3">${esc(c.brands?c.brands.name:"")}</td><td class="px-5 py-3">${prodCount(c.id)}</td><td class="px-5 py-3">${actions('category',c.id)}</td></tr>`).join("")
+      `<tr class="hover:bg-surface-container-low"><td class="px-5 py-3 font-bold">${ord(c.sort)}${esc(c.name)}</td><td class="px-5 py-3">${esc(c.brands?c.brands.name:"")}</td><td class="px-5 py-3">${prodCount(c.id)}</td><td class="px-5 py-3">${actions('category',c.id)}</td></tr>`).join("")
       || emptyRow(4);
     document.getElementById("tbl-products").innerHTML = PRODUCTS.map(p =>
-      `<tr class="hover:bg-surface-container-low"><td class="px-5 py-3 font-bold">${esc(p.name)}</td><td class="px-5 py-3">${esc(p.categories?p.categories.name:"")}</td><td class="px-5 py-3">${esc(p.categories&&p.categories.brands?p.categories.brands.name:"")}</td><td class="px-5 py-3">${actions('product',p.id)}</td></tr>`).join("")
+      `<tr class="hover:bg-surface-container-low"><td class="px-5 py-3 font-bold">${ord(p.sort)}${esc(p.name)}</td><td class="px-5 py-3">${esc(p.categories?p.categories.name:"")}</td><td class="px-5 py-3">${esc(p.categories&&p.categories.brands?p.categories.brands.name:"")}</td><td class="px-5 py-3">${actions('product',p.id)}</td></tr>`).join("")
       || emptyRow(4);
     document.getElementById("overview-brands").innerHTML = BRANDS.map(b =>
       `<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-surface-container-high"><span class="font-bold text-sm">${esc(b.name)}</span><span class="text-xs text-on-surface-variant">${catCount(b.id)} categories</span></div>`).join("") || '<p class="text-sm text-on-surface-variant">No brands yet.</p>';
@@ -244,7 +250,7 @@
     const name=document.getElementById("f-name"), desc=document.getElementById("f-desc"), parent=document.getElementById("f-parent");
     const active=document.getElementById("f-active"), imgName=document.getElementById("f-image-name"), curImg=document.getElementById("f-image-current");
     document.getElementById("f-image").value=""; imgName.textContent="Click to upload image"; curImg.classList.add("hidden"); curImg.src="";
-    name.value=""; desc.value=""; active.checked=true;
+    name.value=""; desc.value=""; active.checked=true; document.getElementById("f-sort").value=1;
 
     if(type==="brand"){ grpParent.style.display="none"; grpDesc.style.display="none"; imgLabel.textContent="Brand Logo"; }
     else if(type==="category"){ grpParent.style.display=""; grpDesc.style.display="none"; parentLabel.textContent="Brand *"; imgLabel.textContent="Cover Image"; parent.innerHTML=BRANDS.map(b=>`<option value="${b.id}">${esc(b.name)}</option>`).join(""); }
@@ -252,7 +258,7 @@
 
     if(editId){
       const rec=(type==="brand"?BRANDS:type==="category"?CATEGORIES:PRODUCTS).find(x=>x.id===editId);
-      if(rec){ name.value=rec.name||""; active.checked=rec.active!==false;
+      if(rec){ name.value=rec.name||""; active.checked=rec.active!==false; document.getElementById("f-sort").value=(rec.sort!=null?rec.sort:1);
         if(type==="category") parent.value=rec.brand_id;
         if(type==="product"){ parent.value=rec.category_id; desc.value=rec.description||""; }
         const url=rec.logo_url||rec.cover_url||rec.image_url;
@@ -270,6 +276,7 @@
     const desc=document.getElementById("f-desc").value.trim();
     const active=document.getElementById("f-active").checked;
     const parentVal=document.getElementById("f-parent").value;
+    const sortVal=parseInt(document.getElementById("f-sort").value,10); const sort=isNaN(sortVal)?0:sortVal;
     const file=document.getElementById("f-image").files[0];
     if(!name){ return; }
     btn.disabled=true; lbl.textContent="Saving…"; err.classList.add("hidden");
@@ -277,9 +284,9 @@
       let imageUrl=null;
       if(file) imageUrl=await db.uploadImage(file);
       let api, rec;
-      if(currentType==="brand"){ api=db.brands; rec={name, active}; if(imageUrl) rec.logo_url=imageUrl; if(!editId) rec.slug=slugify(name)+"-"+Math.random().toString(36).slice(2,5); }
-      else if(currentType==="category"){ api=db.categories; rec={name, active, brand_id:Number(parentVal)}; if(imageUrl) rec.cover_url=imageUrl; if(!editId) rec.slug=slugify(name)+"-"+Math.random().toString(36).slice(2,5); }
-      else { api=db.products; rec={name, active, description:desc, category_id:Number(parentVal)}; if(imageUrl) rec.image_url=imageUrl; }
+      if(currentType==="brand"){ api=db.brands; rec={name, active, sort}; if(imageUrl) rec.logo_url=imageUrl; if(!editId) rec.slug=slugify(name)+"-"+Math.random().toString(36).slice(2,5); }
+      else if(currentType==="category"){ api=db.categories; rec={name, active, sort, brand_id:Number(parentVal)}; if(imageUrl) rec.cover_url=imageUrl; if(!editId) rec.slug=slugify(name)+"-"+Math.random().toString(36).slice(2,5); }
+      else { api=db.products; rec={name, active, sort, description:desc, category_id:Number(parentVal)}; if(imageUrl) rec.image_url=imageUrl; }
       const res = editId ? await api.update(editId, rec) : await api.add(rec);
       if(res.error) throw res.error;
       closeForm(); await loadAll();
