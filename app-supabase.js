@@ -41,6 +41,12 @@
       update: (id, r) => sb.from("products").update(r).eq("id", id).select().single(),
       remove: (id) => sb.from("products").delete().eq("id", id),
     },
+    news: {
+      list:   () => sb.from("news").select("*").order("sort").order("created_at", { ascending: false }),
+      add:    (r) => sb.from("news").insert(r).select().single(),
+      update: (id, r) => sb.from("news").update(r).eq("id", id).select().single(),
+      remove: (id) => sb.from("news").delete().eq("id", id),
+    },
     // Upload an image file to the "media" bucket, return its public URL
     uploadImage: async (file) => {
       const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
@@ -48,6 +54,12 @@
       const { error } = await sb.storage.from("media").upload(path, file, { upsert: false });
       if (error) throw error;
       return sb.storage.from("media").getPublicUrl(path).data.publicUrl;
+    },
+    // Upload several image files, return an array of public URLs (in order)
+    uploadImages: async (files) => {
+      const urls = [];
+      for (const f of files) urls.push(await window.db.uploadImage(f));
+      return urls;
     },
   };
 })();
