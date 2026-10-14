@@ -397,27 +397,6 @@
 </div>
 </section>
 
-<!-- NEWS DETAIL MODAL -->
-<div class="fixed inset-0 z-[70] hidden items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm" id="news-detail">
-<div class="w-full max-w-3xl bg-surface-container-lowest rounded-2xl shadow-2xl border border-surface-container-high max-h-[92vh] overflow-y-auto">
-<div class="relative">
-<img alt="" class="w-full max-h-80 object-cover" id="nd-cover">
-<button class="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/75 transition-colors" onclick="closeNewsDetail()" type="button"><span class="material-symbols-outlined">close</span></button>
-</div>
-<div class="p-6 sm:p-8 space-y-4">
-<p class="text-xs font-bold uppercase tracking-wider text-primary" id="nd-date"></p>
-<h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-on-surface" id="nd-title"></h3>
-<p class="text-sm sm:text-base text-on-surface-variant leading-relaxed whitespace-pre-line" id="nd-desc"></p>
-<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2" id="nd-gallery"></div>
-</div>
-</div>
-</div>
-
-<!-- NEWS IMAGE LIGHTBOX -->
-<div class="fixed inset-0 z-[80] hidden items-center justify-center p-4 bg-black/85 backdrop-blur-sm" id="news-lightbox" onclick="closeNewsImg()">
-<button class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors" onclick="closeNewsImg()" type="button"><span class="material-symbols-outlined text-[26px]">close</span></button>
-<img alt="" class="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain" id="nl-img">
-</div>
 <!-- SECTION 6: CONTACT US -->
 <section class="w-full py-20 lg:py-24 bg-surface" id="contact">
 <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -722,7 +701,7 @@
             : `<div class="w-full h-full flex items-center justify-center bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-4xl">image</span></div>`;
           const badge = imgCount>0 ? `<span class="absolute bottom-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/55 text-white text-[11px] font-bold"><span class="material-symbols-outlined text-[14px]">photo_library</span>${imgCount}</span>` : "";
           const excerpt = n.description ? esc(n.description).slice(0,140) : "";
-          return `<article class="group cursor-pointer rounded-2xl overflow-hidden bg-surface-container-lowest border border-surface-container-high shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" onclick="openNewsItem(${i})">
+          return `<a href="news-detail.html?id=${encodeURIComponent(n.id)}" class="group block cursor-pointer rounded-2xl overflow-hidden bg-surface-container-lowest border border-surface-container-high shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <div class="relative aspect-[16/10] overflow-hidden">${coverHtml}
               <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
               <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary text-white text-[11px] font-bold uppercase tracking-wider">News</span>${badge}
@@ -732,32 +711,11 @@
               ${excerpt?`<p class="mt-2 text-sm text-on-surface-variant line-clamp-2">${excerpt}</p>`:""}
               <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-primary">Read more <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span></span>
             </div>
-          </article>`;
+          </a>`;
         }).join("");
         section.classList.remove("hidden");
       }catch(e){ /* keep hidden on error */ }
     }
-
-    window.openNewsItem=function(i){
-      const n=NEWS[i]; if(!n) return;
-      const cover = n.cover_url || (Array.isArray(n.images)&&n.images[0]) || "";
-      const coverEl=document.getElementById("nd-cover");
-      if(cover){ coverEl.src=cover; coverEl.classList.remove("hidden"); } else { coverEl.classList.add("hidden"); }
-      document.getElementById("nd-date").textContent = n.created_at ? fmtDate(n.created_at) : "";
-      document.getElementById("nd-title").textContent = n.title||"";
-      document.getElementById("nd-desc").textContent = n.description||"";
-      const gal=document.getElementById("nd-gallery");
-      const imgs=Array.isArray(n.images)?n.images:[];
-      gal.innerHTML = imgs.map(u=>`<button type="button" class="aspect-square rounded-xl overflow-hidden border border-surface-container-high group" onclick="openNewsImg('${esc(u)}')"><img src="${esc(u)}" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></button>`).join("");
-      const m=document.getElementById("news-detail"); m.classList.remove("hidden"); m.classList.add("flex");
-      document.body.style.overflow="hidden";
-    };
-    window.closeNewsDetail=function(){ const m=document.getElementById("news-detail"); m.classList.add("hidden"); m.classList.remove("flex"); document.body.style.overflow=""; };
-    window.openNewsImg=function(src){ document.getElementById("nl-img").src=src; const m=document.getElementById("news-lightbox"); m.classList.remove("hidden"); m.classList.add("flex"); };
-    window.closeNewsImg=function(){ const m=document.getElementById("news-lightbox"); m.classList.add("hidden"); m.classList.remove("flex"); };
-
-    document.getElementById("news-detail").addEventListener("click",function(e){ if(e.target===this) closeNewsDetail(); });
-    document.addEventListener("keydown",function(e){ if(e.key==="Escape"){ closeNewsImg(); closeNewsDetail(); } });
     document.addEventListener("DOMContentLoaded", initNews);
   })();
 </script>
