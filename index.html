@@ -393,9 +393,22 @@
 <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-on-surface">Latest News &amp; Events</h2>
 <p class="mt-4 text-base text-on-surface-variant lg:whitespace-nowrap">Highlights from our journey — exhibitions, partnerships, and the moments that move us forward.</p>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="news-grid"></div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4" id="news-grid"></div>
 </div>
 </section>
+
+<!-- GALLERY POPUP (slider) -->
+<div class="fixed inset-0 z-[80] hidden items-center justify-center bg-black/90 backdrop-blur-sm" id="gallery-modal">
+<button aria-label="Close" class="absolute top-4 right-4 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors" id="gm-close" type="button"><span class="material-symbols-outlined text-[26px]">close</span></button>
+<button aria-label="Previous" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors" id="gm-prev" type="button"><span class="material-symbols-outlined text-[28px]">chevron_left</span></button>
+<button aria-label="Next" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors" id="gm-next" type="button"><span class="material-symbols-outlined text-[28px]">chevron_right</span></button>
+<div class="w-full h-full flex flex-col items-center justify-center p-4 sm:p-8 gap-4">
+<div class="flex-1 min-h-0 w-full flex items-center justify-center">
+<img alt="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl select-none" id="gm-img">
+</div>
+<div class="shrink-0 flex items-center gap-2 overflow-x-auto max-w-full px-2 py-1" id="gm-thumbs"></div>
+</div>
+</div>
 
 <!-- SECTION 6: CONTACT US -->
 <section class="w-full py-20 lg:py-24 bg-surface" id="contact">
@@ -685,9 +698,11 @@
 <!-- NEWS & EVENTS (dynamic) -->
 <script>
   (function(){
-    let NEWS=[];
+    let NEWS=[];           // gallery events (newest first)
+    let gImgs=[];          // images of the currently open event
+    let gIndex=0;
     const esc = (s)=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-    const fmtDate = (d)=>{ try{ return new Date(d).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}); }catch(e){ return ""; } };
+    const imagesOf = (n)=>{ const a=[]; if(n.cover_url) a.push(n.cover_url); if(Array.isArray(n.images)) n.images.forEach(u=>{ if(u) a.push(u); }); return a; };
 
     async function initNews(){
       const section=document.getElementById("news"), grid=document.getElementById("news-grid");
@@ -696,32 +711,61 @@
       try{
         const res=await db.news.list();
         if(res.error) return;
-        NEWS=(res.data||[]).filter(n=>n.active!==false);
+        NEWS=(res.data||[]).filter(n=>n.active!==false && imagesOf(n).length)
+             .sort((a,b)=> new Date(b.created_at||0) - new Date(a.created_at||0)); // newest first
         if(!NEWS.length) return; // keep section hidden when empty
         grid.innerHTML = NEWS.map((n,i)=>{
-          const cover = n.cover_url || (Array.isArray(n.images)&&n.images[0]) || "";
-          const extra = (Array.isArray(n.images)?n.images.length:0) + (n.cover_url?0:0);
-          const imgCount = Array.isArray(n.images)?n.images.length:0;
-          const coverHtml = cover
-            ? `<img src="${esc(cover)}" alt="${esc(n.title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">`
-            : `<div class="w-full h-full flex items-center justify-center bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-4xl">image</span></div>`;
-          const badge = imgCount>0 ? `<span class="absolute bottom-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/55 text-white text-[11px] font-bold"><span class="material-symbols-outlined text-[14px]">photo_library</span>${imgCount}</span>` : "";
-          const excerpt = n.description ? esc(n.description).slice(0,140) : "";
-          return `<a href="news-detail.html?id=${encodeURIComponent(n.id)}" class="group block cursor-pointer rounded-2xl overflow-hidden bg-surface-container-lowest border border-surface-container-high shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <div class="relative aspect-[16/10] overflow-hidden">${coverHtml}
-              <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
-              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary text-white text-[11px] font-bold uppercase tracking-wider">News</span>${badge}
-            </div>
-            <div class="p-5">
-              <h3 class="font-extrabold text-lg leading-snug line-clamp-2 text-on-surface group-hover:text-primary transition-colors">${esc(n.title)}</h3>
-              ${excerpt?`<p class="mt-2 text-sm text-on-surface-variant line-clamp-2">${excerpt}</p>`:""}
-              <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-primary">Read more <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span></span>
-            </div>
-          </a>`;
+          const imgs = imagesOf(n);
+          const cover = imgs[0];
+          const extra = imgs.length-1;
+          const badge = extra>0 ? `<span class="absolute bottom-2.5 right-2.5 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/60 text-white text-[11px] font-bold"><span class="material-symbols-outlined text-[14px]">photo_library</span>${imgs.length}</span>` : "";
+          return `<button type="button" onclick="openGallery(${i})" class="group relative block w-full aspect-square overflow-hidden rounded-2xl bg-surface-container border border-surface-container-high shadow-sm hover:shadow-xl transition-all duration-300">
+            <img src="${esc(cover)}" alt="" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <span class="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors flex items-center justify-center"><span class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg">zoom_in</span></span>
+            ${badge}
+          </button>`;
         }).join("");
         section.classList.remove("hidden");
       }catch(e){ /* keep hidden on error */ }
     }
+
+    function renderGallery(){
+      const img=document.getElementById("gm-img");
+      img.src = gImgs[gIndex] || "";
+      const multi = gImgs.length>1;
+      document.getElementById("gm-prev").style.display = multi ? "flex" : "none";
+      document.getElementById("gm-next").style.display = multi ? "flex" : "none";
+      const thumbs=document.getElementById("gm-thumbs");
+      if(multi){
+        thumbs.style.display="flex";
+        thumbs.innerHTML = gImgs.map((u,k)=>`<button type="button" onclick="galleryGoto(${k})" class="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 transition-all ${k===gIndex?'border-white':'border-transparent opacity-60 hover:opacity-100'}"><img src="${esc(u)}" alt="" class="w-full h-full object-cover"></button>`).join("");
+        const active=thumbs.children[gIndex]; if(active && active.scrollIntoView) active.scrollIntoView({inline:"center",block:"nearest"});
+      } else {
+        thumbs.style.display="none"; thumbs.innerHTML="";
+      }
+    }
+    window.openGallery=function(i){
+      const n=NEWS[i]; if(!n) return;
+      gImgs=imagesOf(n); gIndex=0;
+      renderGallery();
+      const m=document.getElementById("gallery-modal"); m.classList.remove("hidden"); m.classList.add("flex");
+      document.body.style.overflow="hidden";
+    };
+    window.closeGallery=function(){ const m=document.getElementById("gallery-modal"); m.classList.add("hidden"); m.classList.remove("flex"); document.body.style.overflow=""; };
+    window.galleryGoto=function(k){ gIndex=(k+gImgs.length)%gImgs.length; renderGallery(); };
+    window.galleryPrev=function(){ galleryGoto(gIndex-1); };
+    window.galleryNext=function(){ galleryGoto(gIndex+1); };
+
+    document.getElementById("gm-close").addEventListener("click", closeGallery);
+    document.getElementById("gm-prev").addEventListener("click", galleryPrev);
+    document.getElementById("gm-next").addEventListener("click", galleryNext);
+    document.getElementById("gallery-modal").addEventListener("click", function(e){ if(e.target===this) closeGallery(); });
+    document.addEventListener("keydown", function(e){
+      if(document.getElementById("gallery-modal").classList.contains("hidden")) return;
+      if(e.key==="Escape") closeGallery();
+      else if(e.key==="ArrowLeft") galleryPrev();
+      else if(e.key==="ArrowRight") galleryNext();
+    });
     document.addEventListener("DOMContentLoaded", initNews);
   })();
 </script>
