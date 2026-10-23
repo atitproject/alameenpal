@@ -769,10 +769,16 @@
     document.addEventListener("DOMContentLoaded", initNews);
   })();
 </script>
-<!-- INQUIRY FORM -> WHATSAPP -->
+<!-- INQUIRY FORM -> EMAIL (Web3Forms) THEN WHATSAPP -->
 <script>
-  function sendInquiry(e){
+  const WEB3FORMS_ACCESS_KEY = "de7a99c4-f01f-432b-8ce8-1c339ad7d447";
+  const INQUIRY_WHATSAPP_NUMBER = "972562820023";
+
+  async function sendInquiry(e){
     e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+
     const val = (id) => (document.getElementById(id) ? document.getElementById(id).value.trim() : '');
     const name = val('inq-name');
     const business = val('inq-business');
@@ -784,6 +790,7 @@
     const brand = brandSel ? (brandSel.options[brandSel.selectedIndex] ? brandSel.options[brandSel.selectedIndex].text : '') : '';
     const message = val('inquiry-message');
 
+    // --- WhatsApp message (same format as before) ---
     let text = "*New Trade & Wholesale Inquiry - Al Amin Pal*\n\n";
     text += "👤 Name: " + name + "\n";
     text += "🏪 Business: " + business + "\n";
@@ -792,12 +799,62 @@
     if (email) text += "✉️ Email: " + email + "\n";
     text += "🏷️ Brand of Interest: " + brand + "\n";
     if (message) text += "📝 Details: " + message + "\n";
+    const waUrl = "https://wa.me/" + INQUIRY_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
 
-    const url = "https://wa.me/972562820023?text=" + encodeURIComponent(text);
-    window.open(url, "_blank");
-
+    // --- Feedback helper ---
     const fb = document.getElementById('form-feedback');
-    if (fb) fb.classList.remove('hidden');
+    const setFeedback = (msg, icon) => {
+      if (!fb) return;
+      fb.classList.remove('hidden');
+      const iconEl = fb.querySelector('.material-symbols-outlined');
+      const textEl = fb.querySelector('span:last-child');
+      if (iconEl) iconEl.textContent = icon;
+      if (textEl) textEl.textContent = msg;
+    };
+
+    // Open a placeholder tab synchronously (inside the click gesture) so the
+    // browser's pop-up blocker lets WhatsApp open after the async email call.
+    const waWin = window.open('', '_blank');
+
+    // Disable the button + show progress
+    const originalBtnHTML = btn ? btn.innerHTML : '';
+    if (btn){ btn.disabled = true; btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Sending…</span>'; }
+    setFeedback('Sending your inquiry…', 'hourglass_top');
+
+    // --- Email payload for Web3Forms ---
+    const payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: "New Trade & Wholesale Inquiry - Al Amin Pal",
+      from_name: name || "Website Inquiry",
+      botcheck: "",
+      Name: name,
+      Business: business,
+      Country: city,
+      Phone: phone,
+      Email: email || "(not provided)",
+      "Brand of Interest": brand,
+      Details: message || "(none)"
+    };
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (data && data.success){
+        setFeedback('Your inquiry was sent by email. Opening WhatsApp…', 'check_circle');
+      } else {
+        setFeedback('Could not send the email — opening WhatsApp so your inquiry still reaches us.', 'error');
+      }
+    } catch (err){
+      setFeedback('Could not send the email — opening WhatsApp so your inquiry still reaches us.', 'error');
+    } finally {
+      // Send to WhatsApp (after email on success, or as a fallback on failure)
+      if (waWin){ waWin.location = waUrl; } else { window.open(waUrl, "_blank"); }
+      if (btn){ btn.disabled = false; btn.innerHTML = originalBtnHTML; }
+    }
   }
 </script>
 <!-- SCROLL REVEAL ANIMATIONS -->
